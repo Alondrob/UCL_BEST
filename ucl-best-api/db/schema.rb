@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_22_162022) do
+ActiveRecord::Schema.define(version: 2021_09_23_215901) do
+
+  create_table "fantasy_team_players", force: :cascade do |t|
+    t.integer "fantasy_team_id"
+    t.integer "player_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fantasy_team_id"], name: "index_fantasy_team_players_on_fantasy_team_id"
+    t.index ["player_id"], name: "index_fantasy_team_players_on_player_id"
+  end
+
+  create_table "fantasy_teams", force: :cascade do |t|
+    t.string "name"
+    t.string "nickname"
+    t.string "color"
+    t.string "country"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "players", force: :cascade do |t|
     t.string "name"
