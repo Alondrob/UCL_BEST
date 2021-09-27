@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import PlayerDetail from './PlayerDetail';
 
-function Player({ player, players, setPlayers }) {
+function Player({ player }) {
     // console.log(player)
     const [showDetails, setShowDetails] = useState(false)
 
@@ -12,15 +12,15 @@ function Player({ player, players, setPlayers }) {
         <div>
 
             <p onClick={() => {
-                setPlayers([player])
+               
                 setShowDetails(!showDetails)
 
             }}
             >
                 {player.name}
             </p>
-            {showDetails ?
-                <PlayerDetail player={player} /> : null}
+            
+            {showDetails && <PlayerDetail player={player} />  }
         </div>
     )
 }
