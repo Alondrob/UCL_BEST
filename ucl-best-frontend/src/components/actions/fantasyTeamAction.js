@@ -23,3 +23,19 @@ export const createFantasyTeam = (fantasyTeam) => {
     }
 }
 
+
+export const editFantasyTeam = (fantasyTeam) => {
+    
+    return (dispatch) => {
+        return fetch(`http://localhost:3000/fantasy_teams/${fantasyTeam.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'accept': 'application/json'
+            },
+            body: JSON.stringify({ fantasy_team: fantasyTeam })
+        })
+        .then(res => res.json())
+        .then(fantasyTeam => dispatch({ type: 'EDIT_FANTASY_TEAM', fantasyTeamKey: fantasyTeam }))
+    }
+}

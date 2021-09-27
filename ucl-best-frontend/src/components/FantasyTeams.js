@@ -12,7 +12,7 @@ import FantasyTeam from './fantasyTeams-components/FantasyTeam'
  
 
     render() {
-        const fantasyTeams = this.props.fantasyTeams.map( (fantasyTeam) => <FantasyTeam fantasyTeam={fantasyTeam}/>)
+        const fantasyTeams = this.props.fantasyTeams.map( (fantasyTeam) => <FantasyTeam key={fantasyTeam.id} fantasyTeam={fantasyTeam}/>)
         
         return (
             <div>

@@ -31,13 +31,13 @@ export class Form extends Component {
         }
         return (
             <form onSubmit={onSubmit}>
-                <label for="name"> Name </label>
+                <label htmlFor="name"> Name </label>
                 <input name="name" type="text" onChange={onChange}/>
-                <label for="nickname"> Nickname</label>
+                <label htmlFor="nickname"> Nickname</label>
                 <input name="nickname" type="text" onChange={onChange} />
-                <label for="color"> Color </label>
+                <label htmlFor="color"> Color </label>
                 <input name="color" type="text" onChange={onChange} />
-                <label for="country"> Country </label>
+                <label htmlFor="country"> Country </label>
                 <input name="country" type="text" onChange={onChange} />
                 <input type="submit" value="Add A Fantasy Team"/>
             </form>
