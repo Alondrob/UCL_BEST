@@ -1,5 +1,5 @@
 
-import PlayerList from './PlayerList';
+import PlayerList from '../players-components/PlayerList.js';
 import React, { useState } from 'react';
 
 
@@ -9,7 +9,7 @@ function Team({ team }) {
         setShowPlayers(!showPlayers)
     }
 
-    
+    console.log({team})
 
   
     return (

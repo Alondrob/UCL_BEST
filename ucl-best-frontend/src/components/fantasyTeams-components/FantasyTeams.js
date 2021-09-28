@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchFantasyTeams } from './actions/fantasyTeamAction'
-import FantasyTeam from './fantasyTeams-components/FantasyTeam'
+import { fetchFantasyTeams } from '../actions/fantasyTeamAction'
+import FantasyTeam from './FantasyTeam'
 
  class FantasyTeams extends Component {
 
@@ -10,7 +10,7 @@ import FantasyTeam from './fantasyTeams-components/FantasyTeam'
         this.props.fetchFantasyTeams()
     }
  
-
+    
     render() {
         const fantasyTeams = this.props.fantasyTeams.map( (fantasyTeam) => <FantasyTeam key={fantasyTeam.id} fantasyTeam={fantasyTeam}/>)
         

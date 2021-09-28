@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 export class EditForm extends Component {
     constructor(props) {
         super(props)
+        console.log(props)
         this.state = {
             id: this.props.fantasyTeam.id,
             name: this.props.fantasyTeam.name,

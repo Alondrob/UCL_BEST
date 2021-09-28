@@ -2,17 +2,14 @@
 import React from 'react';
 import TeamList from './TeamList';
 import {connect} from 'react-redux'
-import { fetchTeams } from './actions/teamAction';
+import { fetchTeams } from '../actions/teamAction'
 
 
 
 
 class Teams extends React.Component {
 
-    constructor(props) {
-        super(props)
-        
-    }
+   
     
     componentDidMount() {
         this.props.fetchTeams()

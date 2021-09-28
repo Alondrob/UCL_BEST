@@ -3,11 +3,9 @@ import Team from './Team';
 
 
 
-
-
 class TeamList extends Component {
     constructor(props) {
-
+console.log(props)
         super(props)
         // console.log(this.props)
         this.state =
