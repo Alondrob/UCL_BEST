@@ -39,3 +39,34 @@ export const editFantasyTeam = (fantasyTeam) => {
         .then(fantasyTeam => dispatch({ type: 'EDIT_FANTASY_TEAM', fantasyTeamKey: fantasyTeam }))
     }
 }
+
+export const deleteFantasyTeam = (fantasyTeam) => {
+
+    return (dispatch) => {
+        fetch(`http://localhost:3000/fantasy_teams/${fantasyTeam.id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'accept': 'application/json'
+            },
+           
+        })
+        dispatch({ type: 'DELETE_FANTASY_TEAM', id: fantasyTeam.id })
+    }
+}
+
+
+export const addFantasyTeamPlayer = (fantasyTeamPlayer) => {
+    return (dispatch) => {
+        fetch('http://localhost:3000/fantasy_team_players', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'accept': 'application/json'   
+            },
+            body: JSON.stringify({ fantasy_team_player: fantasyTeamPlayer })
+        })
+        .then(res => res.json())
+        .then(fantasyTeamPlayer => dispatch({type: 'ADD_FANTASY_TEAM_PLAYER', fantasyTeamPlayerKey: fantasyTeamPlayer}))
+    }
+}

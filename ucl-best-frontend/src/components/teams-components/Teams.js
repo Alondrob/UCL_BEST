@@ -18,7 +18,7 @@ class Teams extends React.Component {
         return (
             <div className="App">
                 {/* <PlayerSelection /> */}
-                <TeamList teams={this.props.teams} />
+                <TeamList teams={this.props.teams} fantasyTeam={this.props.fantasyTeam} />
             </div>
         );
         
