@@ -6,12 +6,12 @@ import { Link, withRouter } from 'react-router-dom'
 function Menu() {
     return (
         <div>
-            <Link to="/"> Home Page </Link>
-            <Link to="/about-us"> About Us </Link>
-            <Link to="/terms"> Terms </Link>
-            <Link to="/fantasy_teams"> Show All Fantasy Teams </Link>
-            <Link to="/teams"> Go To Teams </Link>
-            <Link to="/fantasy_teams/new"> Create New Fantasy Team</Link>
+            <Link to="/"> Home Page </Link>&nbsp;&nbsp;
+            <Link to="/about-us"> About Us </Link>&nbsp;&nbsp;
+            <Link to="/terms"> Terms </Link>&nbsp;&nbsp;
+            <Link to="/fantasy_teams"> Show All Fantasy Teams </Link>&nbsp;&nbsp;
+            <Link to="/teams"> Go To Teams </Link>&nbsp;&nbsp;
+            <Link to="/fantasy_teams/new"> Create New Fantasy Team</Link>&nbsp;&nbsp;
         </div>
     )
 }

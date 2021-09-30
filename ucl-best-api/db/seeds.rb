@@ -1,5 +1,6 @@
 require 'rest-client'
-
+# Player.destroy_all
+# Team.destroy_all
 # teams
   
         url = 'https://api.football-data.org/v2/competitions/2001/teams'

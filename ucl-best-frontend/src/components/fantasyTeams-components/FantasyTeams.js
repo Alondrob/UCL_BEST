@@ -9,9 +9,10 @@ import FantasyTeam from './FantasyTeam'
     componentDidMount() {
         this.props.fetchFantasyTeams()
     }
- 
+    
     
     render() {
+        console.log(this.props)
         const fantasyTeams = this.props.fantasyTeams.map( (fantasyTeam) => <FantasyTeam key={fantasyTeam.id} fantasyTeam={fantasyTeam}/>)
         
         return (
@@ -36,3 +37,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FantasyTeams)
+
+
+// // const dispatch = ( action ) => {
+//     state = reducer(state, action)
+//     return state;
+
+// } 

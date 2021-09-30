@@ -18,11 +18,12 @@ function App() {
         <Menu />
         <Switch>
           <Route path="/" exact component={() => <HomePage />} />
+          <Route path="/fantasy_teams/new" exact component={Form} />
           <Route path="/fantasy_teams/:id" exact component={FantasyTeamShow} />
           <Route path="/about-us" exact component={() => <AboutUs />} />
           <Route path="/teams" exact component={() => <Teams />} />
           <Route path="/fantasy_teams" exact component={() => <FantasyTeams />} />
-          <Route path="/fantasy_teams/new" exact component={Form} />
+         
           <Route path="/team" exact component={Team} />
           
         </Switch>
