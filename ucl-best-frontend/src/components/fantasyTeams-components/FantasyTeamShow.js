@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { deleteFantasyTeam } from '../actions/fantasyTeamAction'
+import { deleteFantasyTeam, deleteFantasyTeamPlayer } from '../actions/fantasyTeamAction'
 import EditForm from './EditForm'
 import Teams from '../teams-components/Teams'
 
@@ -22,12 +22,17 @@ const FantasyTeamShow = (props) => {
         setShowTeams(!showTeams)
     }
 
+    
     const fantasyTeam = props.fantasyTeams.find(fantasyTeam => fantasyTeam.id === parseInt(props.match.params.id))
 
     const showPlayers = () => {
         setShowPlayers(!showPlayersState)
     }
 
+    const deletePlayer = (event) => {
+        props.deleteFantasyTeamPlayer(event.target.dataset.id)
+    }
+    console.log(fantasyTeam)
     return (
         <div>
             <p> {fantasyTeam.nickname}</p>
@@ -35,8 +40,8 @@ const FantasyTeamShow = (props) => {
             <p> {fantasyTeam.country}</p>
             {showPlayersState && <React.Fragment>
                 <h1>Players</h1>
-            {fantasyTeam.players.map(player =>
-                <p>{player.name}</p>)}</React.Fragment>}
+                {fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => <p>{fantasyTeamPlayer.player.name} &nbsp;<button data-id={fantasyTeamPlayer.id} onClick={deletePlayer}> Delete Player </button></p>)}
+                </React.Fragment>}
             <button onClick={showPlayers}> Present Team's Players </button>
             <button onClick={onEdit}> Edit Team </button>
             <button onClick={onDelete}> Delete Team </button>
@@ -56,7 +61,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deleteFantasyTeam: (fantasyTeam) => dispatch(deleteFantasyTeam(fantasyTeam))
+        deleteFantasyTeam: (fantasyTeam) => dispatch(deleteFantasyTeam(fantasyTeam)),
+        deleteFantasyTeamPlayer: (fantasyTeamPlayerId) => dispatch(deleteFantasyTeamPlayer(fantasyTeamPlayerId))
     }
 }
 

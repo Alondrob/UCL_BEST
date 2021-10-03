@@ -70,3 +70,18 @@ export const addFantasyTeamPlayer = (fantasyTeamPlayer) => {
         .then(fantasyTeamPlayer => dispatch({type: 'ADD_FANTASY_TEAM_PLAYER', fantasyTeamPlayerKey: fantasyTeamPlayer}))
     }
 }
+
+
+export const deleteFantasyTeamPlayer = (fantasyTeamPlayerId) => {
+    return (dispatch) => {
+        fetch(`http://localhost:3000/fantasy_team_players/${fantasyTeamPlayerId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'accept': 'application/json'
+            },
+            
+        })
+             dispatch({ type: 'DELETE_FANTASY_TEAM_PLAYER', fantasyTeamPlayerIdKey: fantasyTeamPlayerId })
+    }
+}

@@ -1,7 +1,7 @@
 require 'rest-client'
-# Player.destroy_all
-# Team.destroy_all
-# teams
+Player.destroy_all
+Team.destroy_all
+
   
         url = 'https://api.football-data.org/v2/competitions/2001/teams'
         response = RestClient.get(url, {'x-auth-token': '79ed90e3adb84566a10136976e3b54ad', accept: :json})
@@ -14,13 +14,14 @@ require 'rest-client'
 #team
 #players
          Team.all.each do |team|
-
-         sleep 1 
+            sleep 20
+            puts team.id
          url = "https://api.football-data.org/v2/teams/#{team.api_id}"
             response = RestClient.get(url, {'x-auth-token': '79ed90e3adb84566a10136976e3b54ad', accept: :json})
          data= JSON.parse(response.body)
          data['squad'].each do |player|
-          Player.create(name: player['name'], position: player['position'], nationality: player['nationality'], team: team )
+            # byebug
+          Player.create(name: player['name'], position: player['position'], nationality: player['nationality'], team: team, dob: player['dateOfBirth'] )
          end
 
          end

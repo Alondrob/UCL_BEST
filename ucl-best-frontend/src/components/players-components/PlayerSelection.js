@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import PlayersList from './PlayersList';
+import PlayerList from './PlayerList';
 
 const PlayerSelection = () => {
     const [isPlayerListVisible, setIsPlayerListVisible] = useState(false);
@@ -17,7 +17,7 @@ const PlayerSelection = () => {
                 <button id="player-selection" onClick={onClick}>
                     Open Players List
                 </button>
-                {isPlayerListVisible && <PlayersList />}
+                {isPlayerListVisible && <PlayerList />}
             </div>
         </div>
     )

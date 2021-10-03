@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function PlayerDetail({ player }) {
     // console.log(player)
-    const playerState = [player.name, player.position, player.nationality]
+    const playerState = [player.name, player.position, player.nationality, player.age]
 
 
     // setPlayerData(console.log('change'))

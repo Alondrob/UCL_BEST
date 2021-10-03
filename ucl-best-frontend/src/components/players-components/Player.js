@@ -7,11 +7,21 @@ import PlayerDetail from './PlayerDetail';
 function Player({ player, addFantasyTeamPlayer, fantasyTeam }) {
     // console.log(player)
     const [showDetails, setShowDetails] = useState(false)
+    const [playerAdded, setPlayerAdded] = useState(fantasyTeam.players.find(fantasyTeamPlayer => fantasyTeamPlayer.id === player.id) != undefined)
 
     const onclick = () => {
-        addFantasyTeamPlayer({player_id: player.id, fantasy_team_id: fantasyTeam.id })
+        if (fantasyTeam.fantasy_team_players.length < 11) {
+            setPlayerAdded(true)
+            addFantasyTeamPlayer({ player_id: player.id, fantasy_team_id: fantasyTeam.id })
+        } 
+        else {
+            alert("You Can have no more than 11 Players on one Team")
+        }
+        
     }
 
+
+   
     return (
         <div>
 
@@ -21,7 +31,7 @@ function Player({ player, addFantasyTeamPlayer, fantasyTeam }) {
                     setShowDetails(!showDetails)
                 }}>{player.name} 
                 </span> &nbsp;
-                <button onClick={onclick}> Add A Player </button>
+                {playerAdded ? <span> Player Added </span> : <button onClick={onclick}> Add A Player </button>}
             </p>
             
             {showDetails && <PlayerDetail player={player} />  }
@@ -36,6 +46,5 @@ const mapDispatchToProps = (dispatch) => {
         addFantasyTeamPlayer: (fantasyTeamPlayer) => dispatch(addFantasyTeamPlayer(fantasyTeamPlayer))
     }
 }
-
 
 export default connect(null, mapDispatchToProps)(Player)
