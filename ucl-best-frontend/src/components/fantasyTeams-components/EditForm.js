@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 export class EditForm extends Component {
     constructor(props) {
         super(props)
-        console.log(props)
+        // console.log(props)
         this.state = {
             id: this.props.fantasyTeam.id,
             name: this.props.fantasyTeam.name,
@@ -18,6 +18,7 @@ export class EditForm extends Component {
         }
     }
     render() {
+        console.log('EditForm.js', this.props)
         const onChange = (event) => {
             this.setState({
                 [event.target.name]: event.target.value

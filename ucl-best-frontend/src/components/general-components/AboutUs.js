@@ -1,6 +1,8 @@
 import React from "react";
 
 const AboutUs = () => {
+
+    console.log('aboutUs.js')
     return (
         <React.Fragment>
             <h2>

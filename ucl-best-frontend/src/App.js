@@ -12,6 +12,7 @@ import Form from './components/fantasyTeams-components/Form';
 import FantasyTeamShow from './components/fantasyTeams-components/FantasyTeamShow.js';
 
 function App() {
+  console.log('app.js')
   return (
     <React.Fragment>
       <Router>

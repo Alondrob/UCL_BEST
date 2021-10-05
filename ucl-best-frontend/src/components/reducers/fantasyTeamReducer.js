@@ -19,6 +19,7 @@ const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
             }
 
         case "DELETE_FANTASY_TEAM":
+            // debugger
             const fantasyTeams = state.fantasyTeams.filter(fantasyTeam => fantasyTeam.id !== action.id)
             return {
                 fantasyTeams: fantasyTeams
@@ -35,7 +36,6 @@ const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
             }
 
             case "DELETE_FANTASY_TEAM_PLAYER":
-                debugger
             const fantasyTeamPlayerIdKey = parseInt(action.fantasyTeamPlayerIdKey)
             let fantasyTeamsArray = state.fantasyTeams.find(fantasyTeam => fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => fantasyTeamPlayer.id).includes(fantasyTeamPlayerIdKey))
             

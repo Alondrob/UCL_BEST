@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import Team from './Team';
 
 
-
 class TeamList extends Component {
     constructor(props) {
-console.log(props)
+// console.log(props)
         super(props)
         // console.log(this.props)
         this.state =
@@ -14,7 +13,7 @@ console.log(props)
         }
     }
     render() {
-        console.log(this.props)
+        console.log('Teamlist.js', this.props)
         const handleChange = (event) => {
             const selectedTeam = this.props.teams.find(team => team.id === parseInt(event.target.value))
 

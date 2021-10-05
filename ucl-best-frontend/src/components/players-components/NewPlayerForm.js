@@ -20,7 +20,7 @@ export default class NewPlayerForm extends Component {
 
     render() {
         const handleChange = (event) => {
-            console.log(event)
+            // console.log(event)
             this.setState({
                 [event.target.name]: event.target.value
             })

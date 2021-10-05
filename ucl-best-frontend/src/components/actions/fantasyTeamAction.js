@@ -17,6 +17,7 @@ export const createFantasyTeam = (fantasyTeam) => {
                 'accept': 'application/json'
             },
             body: JSON.stringify({fantasy_team: fantasyTeam})
+            //Brandon please explain the data here
         })
             .then(res => res.json())
             .then(fantasyTeam => dispatch({ type: 'CREATE_FANTASY_TEAM', fantasyTeamKey: fantasyTeam }))

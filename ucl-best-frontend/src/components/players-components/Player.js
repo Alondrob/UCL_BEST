@@ -3,15 +3,14 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addFantasyTeamPlayer } from '../actions/fantasyTeamAction';
 import PlayerDetail from './PlayerDetail';
+import { togglePlayerAdded} from '../actions/playersActions';
 
-function Player({ player, addFantasyTeamPlayer, fantasyTeam }) {
-    // console.log(player)
+function Player({ player, addFantasyTeamPlayer, fantasyTeam, togglePlayerAdded }) {
     const [showDetails, setShowDetails] = useState(false)
-    const [playerAdded, setPlayerAdded] = useState(fantasyTeam.players.find(fantasyTeamPlayer => fantasyTeamPlayer.id === player.id) != undefined)
 
     const onclick = () => {
         if (fantasyTeam.fantasy_team_players.length < 11) {
-            setPlayerAdded(true)
+            togglePlayerAdded(player)
             addFantasyTeamPlayer({ player_id: player.id, fantasy_team_id: fantasyTeam.id })
         } 
         else {
@@ -20,18 +19,14 @@ function Player({ player, addFantasyTeamPlayer, fantasyTeam }) {
         
     }
 
-
-   
     return (
         <div>
-
-            <p 
-            >
+            <p>
                 <span onClick={() => {
                     setShowDetails(!showDetails)
                 }}>{player.name} 
                 </span> &nbsp;
-                {playerAdded ? <span> Player Added </span> : <button onClick={onclick}> Add A Player </button>}
+                {player.added ? <span> Player Added </span> : <button onClick={onclick}> Add A Player </button>}
             </p>
             
             {showDetails && <PlayerDetail player={player} />  }
@@ -43,7 +38,8 @@ function Player({ player, addFantasyTeamPlayer, fantasyTeam }) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addFantasyTeamPlayer: (fantasyTeamPlayer) => dispatch(addFantasyTeamPlayer(fantasyTeamPlayer))
+        addFantasyTeamPlayer: (fantasyTeamPlayer) => dispatch(addFantasyTeamPlayer(fantasyTeamPlayer)),
+        togglePlayerAdded: (player) => dispatch(togglePlayerAdded(player))
     }
 }
 

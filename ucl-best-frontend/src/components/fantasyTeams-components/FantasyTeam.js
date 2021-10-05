@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 const FantasyTeam = ({fantasyTeam, deleteFantasyTeam}) => {
 
    
-
+    console.log('FantasyTeam.js', this.props)
     
     return (
         <React.Fragment>

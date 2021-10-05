@@ -5,18 +5,17 @@ import {connect} from 'react-redux'
 import { fetchTeams } from '../actions/teamAction'
 
 
-
-
 class Teams extends React.Component {
-
    
-    
     componentDidMount() {
         this.props.fetchTeams()
+       
     }
     render() {
+        console.log('teams.js', this.props)
+        // console.log(this.props.teams)
         return (
-            <div className="App">
+            <div >
                 {/* <PlayerSelection /> */}
                 <TeamList teams={this.props.teams} fantasyTeam={this.props.fantasyTeam} />
             </div>
@@ -26,6 +25,7 @@ class Teams extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log('mapstatettoProps', state)
     return {
         teams: state.teamReducer.teams
     }

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { deleteFantasyTeam, deleteFantasyTeamPlayer } from '../actions/fantasyTeamAction'
 import EditForm from './EditForm'
 import Teams from '../teams-components/Teams'
+import FantasyTeamPlayer from '../players-components/fantasyTeamPlayer'
 
 const FantasyTeamShow = (props) => {
     const [showEditForm, setShowEditForm] = useState(false)
@@ -15,24 +16,23 @@ const FantasyTeamShow = (props) => {
     }
 
     const onDelete = () => {
-        deleteFantasyTeam(fantasyTeam)
+        props.deleteFantasyTeam(fantasyTeam)
+        window.location.href = "/fantasy_teams"
     }
 
     const renderTeams = () => {
         setShowTeams(!showTeams)
     }
 
-    
+    // console.log('FT SHOW', props)
     const fantasyTeam = props.fantasyTeams.find(fantasyTeam => fantasyTeam.id === parseInt(props.match.params.id))
 
     const showPlayers = () => {
         setShowPlayers(!showPlayersState)
     }
 
-    const deletePlayer = (event) => {
-        props.deleteFantasyTeamPlayer(event.target.dataset.id)
-    }
-    console.log(fantasyTeam)
+  
+    console.log('FantasyTeamShow.js', this.props)
     return (
         <div>
             <p> {fantasyTeam.nickname}</p>
@@ -40,12 +40,15 @@ const FantasyTeamShow = (props) => {
             <p> {fantasyTeam.country}</p>
             {showPlayersState && <React.Fragment>
                 <h1>Players</h1>
-                {fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => <p>{fantasyTeamPlayer.player.name} &nbsp;<button data-id={fantasyTeamPlayer.id} onClick={deletePlayer}> Delete Player </button></p>)}
+                {fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => <FantasyTeamPlayer fantasyTeamPlayer={fantasyTeamPlayer} />)}
                 </React.Fragment>}
             <button onClick={showPlayers}> Present Team's Players </button>
             <button onClick={onEdit}> Edit Team </button>
+
             <button onClick={onDelete}> Delete Team </button>
+
             <button onClick={renderTeams}> Add Players </button>
+
             {showTeams && <Teams fantasyTeam={fantasyTeam} />}
             {showEditForm && <EditForm fantasyTeam={fantasyTeam} setShowEditForm={setShowEditForm} />}
             

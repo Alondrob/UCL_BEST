@@ -1,10 +1,8 @@
-
 import React, { Component } from 'react'
 import { createFantasyTeam } from '../actions/fantasyTeamAction'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 export class Form extends Component {
-
     constructor() {
         super()
         this.state = {
@@ -14,40 +12,40 @@ export class Form extends Component {
             country: ""
         }
     }
-
-    
     render() {
+        console.log('Form.js', this.props)
         const onChange = (event) => {
             this.setState({
                 [event.target.name]: event.target.value
             })
         }
-
+        console.log('state', this.state)
         const onSubmit = (event) => {
             event.preventDefault();
             this.props.createFantasyTeam(this.state)
+
                 .then(() => window.location.href = '/fantasy_teams')
-            
         }
         return (
             <form onSubmit={onSubmit}>
                 <label htmlFor="name"> Name </label>
-                <input name="name" type="text" onChange={onChange}/>
+                <input name="name" type="text" onChange={onChange} />
                 <label htmlFor="nickname"> Nickname</label>
                 <input name="nickname" type="text" onChange={onChange} />
                 <label htmlFor="color"> Color </label>
                 <input name="color" type="text" onChange={onChange} />
                 <label htmlFor="country"> Country </label>
                 <input name="country" type="text" onChange={onChange} />
-                <input type="submit" value="Add A Fantasy Team"/>
+                <input type="submit" value="Add A Fantasy Team" />
             </form>
         )
     }
 }
-
 const mapDispatchToProps = (dispatch) => {
+    // console.log(fantasyTeam)
     return {
         createFantasyTeam: (fantasyTeam) => dispatch(createFantasyTeam(fantasyTeam))
+
     }
 }
 export default connect(null, mapDispatchToProps)(Form)

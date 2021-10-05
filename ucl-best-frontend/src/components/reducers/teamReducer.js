@@ -4,6 +4,7 @@ const teamReducer = (state = { teams: []}, action) => {
             return {
                 teams: action.teams
             }
+            // console.log('action', action)
         default:
             return state;
     }

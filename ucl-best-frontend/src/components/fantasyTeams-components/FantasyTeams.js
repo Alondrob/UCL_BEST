@@ -12,7 +12,6 @@ import FantasyTeam from './FantasyTeam'
     
     
     render() {
-        console.log(this.props)
         const fantasyTeams = this.props.fantasyTeams.map( (fantasyTeam) => <FantasyTeam key={fantasyTeam.id} fantasyTeam={fantasyTeam}/>)
         
         return (
@@ -28,7 +27,9 @@ const mapStateToProps = (state) => {
     return {
         fantasyTeams: state.fantasyTeamReducer.fantasyTeams
     }
+    
 }
+
 
 const mapDispatchToProps = (dispatch) => {
     return {

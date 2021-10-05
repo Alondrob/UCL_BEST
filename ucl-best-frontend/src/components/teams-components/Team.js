@@ -9,9 +9,9 @@ function Team({ team, fantasyTeam}) {
         setShowPlayers(!showPlayers)
     }
 
-    console.log({team})
+    // console.log({team})
 
-  
+    console.log('Team.js', team)
     return (
         <div>
             <p> {team.name}
