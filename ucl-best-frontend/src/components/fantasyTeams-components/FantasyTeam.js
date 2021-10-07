@@ -12,7 +12,7 @@ import './FantasyTeam.css'
 const FantasyTeam = ({ fantasyTeam, setComparedTeams }) => {
 
 
-    console.log('FantasyTeam.js', fantasyTeam)
+    // console.log('FantasyTeam.js', fantasyTeam)
 
     return (
         <React.Fragment>
