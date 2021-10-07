@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { createFantasyTeam } from '../actions/fantasyTeamAction'
 import { connect } from 'react-redux'
+import './FantasyTeam.css'
 
 export class Form extends Component {
     constructor() {
@@ -27,16 +28,16 @@ export class Form extends Component {
                 .then(() => window.location.href = '/fantasy_teams')
         }
         return (
-            <form onSubmit={onSubmit}>
-                <label htmlFor="name"> Name </label>
-                <input name="name" type="text" onChange={onChange} />
-                <label htmlFor="nickname"> Nickname</label>
-                <input name="nickname" type="text" onChange={onChange} />
-                <label htmlFor="color"> Color </label>
-                <input name="color" type="text" onChange={onChange} />
-                <label htmlFor="country"> Country </label>
-                <input name="country" type="text" onChange={onChange} />
-                <input type="submit" value="Add A Fantasy Team" />
+            <form id="form-backround" onSubmit={onSubmit}>
+                <label className="Form-label" htmlFor="name"> Name: </label>&nbsp;<br></br>
+                <input className="Form-input" name="name" type="text" onChange={onChange} /> <br></br>
+                <label className="Form-label" htmlFor="nickname"> Nickname:</label>&nbsp;<br></br>
+                <input className="Form-input" name="nickname" type="text" onChange={onChange} /><br></br>
+                <label className="Form-label" htmlFor="color"> Color </label><br></br>
+                <input className="Form-input" name="color" type="text" onChange={onChange} /><br></br>
+                <label className="Form-label" htmlFor="country"> Country </label><br></br>
+                <input className="Form-input" name="country" type="text" onChange={onChange} /><br></br><br></br>
+                <input className="submit-button" type="submit" value="Add A Fantasy Team" />
             </form>
         )
     }

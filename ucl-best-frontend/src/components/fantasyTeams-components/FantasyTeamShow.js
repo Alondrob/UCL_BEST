@@ -10,6 +10,7 @@ const FantasyTeamShow = (props) => {
     const [showEditForm, setShowEditForm] = useState(false)
     const [showTeams, setShowTeams] = useState(false)
     const [showPlayersState, setShowPlayers] = useState(false)
+    
 
     const onEdit = () => {
         setShowEditForm(!showEditForm)
@@ -32,7 +33,8 @@ const FantasyTeamShow = (props) => {
     }
 
   
-    console.log('FantasyTeamShow.js', this.props)
+    // console.log('FantasyTeamShow.js', this.props)
+    // console.log('mapStateToProps', props.state)
     return (
         <div>
             <p> {fantasyTeam.nickname}</p>
@@ -40,7 +42,7 @@ const FantasyTeamShow = (props) => {
             <p> {fantasyTeam.country}</p>
             {showPlayersState && <React.Fragment>
                 <h1>Players</h1>
-                {fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => <FantasyTeamPlayer fantasyTeamPlayer={fantasyTeamPlayer} />)}
+                {fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => <FantasyTeamPlayer key={fantasyTeamPlayer.id} fantasyTeamPlayer={fantasyTeamPlayer} />)}
                 </React.Fragment>}
             <button onClick={showPlayers}> Present Team's Players </button>
             <button onClick={onEdit}> Edit Team </button>
@@ -58,7 +60,8 @@ const FantasyTeamShow = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        fantasyTeams: state.fantasyTeamReducer.fantasyTeams
+        fantasyTeams: state.fantasyTeamReducer.fantasyTeams,
+        state: state
     }
 }
 

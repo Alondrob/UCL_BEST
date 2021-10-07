@@ -1,0 +1,47 @@
+/* form */
+.Form-input {
+    background-color: blanchedalmond;
+    text-align: center;
+}
+
+.Form-label {
+    font-weight: 900;
+    color: black;
+    
+}
+
+.submit-button {
+    background-color: black;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 50px;
+    font-weight: 800;
+    
+}
+
+#form-backround {
+    background: url("https://i.pinimg.com/originals/79/24/ec/7924eccaf6779819242591fab54021e5.jpg");
+    display: flexbox;
+    height: 100vh;
+    text-align: center;
+}
+
+/* FantasyTeams.js */
+
+.fantasy-teams-header {
+    color: blue;
+    background-color: burlywood;
+    text-decoration: underline;
+}
+
+.all-fantasy-teams {  
+    color:black;
+    font-weight: 800;
+    text-align-last: center;
+}
+
+/* .fantasy-team-backround {
+    background: url('https://staticg.sportskeeda.com/editor/2020/07/2efdc-15948912818446-800.jpg');
+    height: 100vh;
+    text-align:center
+} */

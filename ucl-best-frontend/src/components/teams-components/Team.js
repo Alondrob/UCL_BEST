@@ -8,7 +8,6 @@ function Team({ team, fantasyTeam}) {
     const onClick = () => {
         setShowPlayers(!showPlayers)
     }
-
     // console.log({team})
 
     console.log('Team.js', team)

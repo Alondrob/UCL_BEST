@@ -14,7 +14,11 @@ class TeamList extends Component {
     }
     render() {
         console.log('Teamlist.js', this.props)
+        console.log('teamlist state', this.state)
         const handleChange = (event) => {
+            if (event.target.value === "0") {
+                return;
+            }
             const selectedTeam = this.props.teams.find(team => team.id === parseInt(event.target.value))
 
             this.setState({
@@ -26,6 +30,7 @@ class TeamList extends Component {
             <div>
                 {/* {teams.map(team => <Team key={team.id} team={team} />)} */}
                 <select onChange={handleChange}>
+                    <option value="0">Select a team</option>
                     {this.props.teams.map(team => <option value={team.id} key={team.id}> {team.name} </option>)}
                 </select>
                 {this.state.team && <Team key={this.state.team.id} team={this.state.team} fantasyTeam={this.props.fantasyTeam} />}
