@@ -1,11 +1,10 @@
-
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchFantasyTeams } from '../actions/fantasyTeamAction'
 import FantasyTeam from './FantasyTeam'
 import './FantasyTeam.css'
 
- class FantasyTeams extends Component {
+class FantasyTeams extends Component {
 
     constructor() {
         super()
@@ -17,18 +16,18 @@ import './FantasyTeam.css'
     componentDidMount() {
         this.props.fetchFantasyTeams()
     }
-    
-    
-    
+
+
+
     render() {
         const setComparedTeams = (fantasyTeam) => {
             this.setState({
                 comparedTeams: [...this.state.comparedTeams, fantasyTeam]
             })
         }
-        const fantasyTeams = this.props.fantasyTeams.map( (fantasyTeam) => <FantasyTeam setComparedTeams={setComparedTeams} key={fantasyTeam.id} fantasyTeam={fantasyTeam}/>)
+        const fantasyTeams = this.props.fantasyTeams.map((fantasyTeam) => <FantasyTeam setComparedTeams={setComparedTeams} key={fantasyTeam.id} fantasyTeam={fantasyTeam} />)
         console.log(this.state.comparedTeams)
-     
+
         return (
             <div className='fantasy-team-backround'>
                 <h1 > <span className="fantasy-teams-header">Your Teams </span></h1>
@@ -51,7 +50,7 @@ const mapStateToProps = (state) => {
     return {
         fantasyTeams: state.fantasyTeamReducer.fantasyTeams
     }
-    
+
 }
 
 
@@ -69,3 +68,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(FantasyTeams)
 //     return state;
 
 // } 
+

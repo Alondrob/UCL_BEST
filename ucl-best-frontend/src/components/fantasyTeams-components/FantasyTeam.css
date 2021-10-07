@@ -2,16 +2,18 @@
 .Form-input {
     background-color: blanchedalmond;
     text-align: center;
+    text-align: end;
 }
 
 .Form-label {
     font-weight: 900;
-    color: black;
+    color: silver;
+    text-align: justify;
     
 }
 
 .submit-button {
-    background-color: black;
+    background-color: gold;
     font-size: 20px;
     padding: 20px;
     border-radius: 50px;
@@ -21,8 +23,9 @@
 
 #form-backround {
     background: url("https://i.pinimg.com/originals/79/24/ec/7924eccaf6779819242591fab54021e5.jpg");
-    display: flexbox;
+    /* display: flexbox; */
     height: 100vh;
+    background-size: cover;
     text-align: center;
 }
 
@@ -35,13 +38,43 @@
 }
 
 .all-fantasy-teams {  
-    color:black;
-    font-weight: 800;
+    color: red;
+    background-color: rgb(0, 217, 255);
+    font-weight: 900;
+    font-size: 8mm;
     text-align-last: center;
+    flex-wrap: wrap;
 }
 
-/* .fantasy-team-backround {
-    background: url('https://staticg.sportskeeda.com/editor/2020/07/2efdc-15948912818446-800.jpg');
+.fantasy-teams-backround {
+    background: url('https://images.indianexpress.com/2020/04/uefa-champions-league.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1500px;
     height: 100vh;
-    text-align:center
-} */
+    text-align: center;
+   
+}
+
+
+/* fantasy-team-show */
+
+#fantasy-team-show {
+    background:url('https://images2.minutemediacdn.com/image/upload/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/Real-Madrid-v-Liverpool---UEFA-Champions-League-Fi-1135101713f01481961d87fe432a2817.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1500px;
+    height: 100vh;
+    background-color: lightgreen;
+}
+.fantasy-team-details {
+    text-align: center;
+    
+}
+
+.team-details {
+    background-color: blue;
+    color: cornsilk;
+    font-weight: 900;
+   text-align: center;
+}

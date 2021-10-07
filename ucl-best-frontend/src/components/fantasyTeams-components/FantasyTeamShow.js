@@ -36,10 +36,18 @@ const FantasyTeamShow = (props) => {
     // console.log('FantasyTeamShow.js', this.props)
     // console.log('mapStateToProps', props.state)
     return (
-        <div>
-            <p> {fantasyTeam.nickname}</p>
-            <p> {fantasyTeam.color}</p>
-            <p> {fantasyTeam.country}</p>
+        <div id="fantasy-team-show">
+            
+                <p > 
+                    <span className='team-details'>{fantasyTeam.nickname}</span>
+                </p>
+                <p >
+                    <span className='team-details'> {fantasyTeam.color}</span> 
+                </p>
+                <p >
+                    <span className='team-details'>{fantasyTeam.country}</span>
+                </p>
+            
             {showPlayersState && <React.Fragment>
                 <h1>Players</h1>
                 {fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => <FantasyTeamPlayer key={fantasyTeamPlayer.id} fantasyTeamPlayer={fantasyTeamPlayer} />)}

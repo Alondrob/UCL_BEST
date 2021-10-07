@@ -1,4 +1,6 @@
 #homepage {
   background-color: aqua;
   height: 100vh;
+  width: auto;
+  background: url('https://i.pinimg.com/originals/9d/89/65/9d89651da062b9853dd240471095c7cb.jpg')
 }
