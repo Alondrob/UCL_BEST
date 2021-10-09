@@ -1,4 +1,5 @@
 import FantasyTeam from "../fantasyTeams-components/FantasyTeam"
+import fantasyTeamPlayer from "../players-components/fantasyTeamPlayer"
 
 const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
     switch (action.type) {
@@ -27,22 +28,55 @@ const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
 
         case "ADD_FANTASY_TEAM_PLAYER":
             const updatedFantasyTeam = state.fantasyTeams.find(fantasyTeam => fantasyTeam.id === action.fantasyTeamPlayerKey.fantasy_team.id)
-            updatedFantasyTeam.players.push(action.fantasyTeamPlayerKey.player)
-            updatedFantasyTeam.fantasy_team_players.push(action.fantasyTeamPlayerKey)
-            const updatedFantasyTeams = state.fantasyTeams.map((fantasyTeam) =>
-                fantasyTeam.id === action.fantasyTeamPlayerKey.fantasy_team.id ? updatedFantasyTeam : fantasyTeam)
             return {
-                fantasyTeams: updatedFantasyTeams
+                fantasyTeams: state.fantasyTeams.map(fantasyTeam => fantasyTeam.id === action.fantasyTeamPlayerKey.fantasy_team.id ? {
+                    ...updatedFantasyTeam, 
+                    players: [
+                        ...updatedFantasyTeam.players, 
+                        action.fantasyTeamPlayerKey.player 
+                    ],
+                    fantasy_team_players: [
+                        ...updatedFantasyTeam.fantasy_team_players, 
+                        action.fantasyTeamPlayerKey
+                    ]
+                }
+                    : fantasyTeam
+                )
             }
+
+            {
+                fantasyTeams: [
+                    {
+                       id: 1,
+                       name: 'ANTON',
+                       fantasy_team_players: [{
+                           id: 1,
+                       }]
+
+                    }
+                ]
+            }
+
+
+
 
             case "DELETE_FANTASY_TEAM_PLAYER":
             const fantasyTeamPlayerIdKey = parseInt(action.fantasyTeamPlayerIdKey)
-            let fantasyTeamsArray = state.fantasyTeams.find(fantasyTeam => fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => fantasyTeamPlayer.id).includes(fantasyTeamPlayerIdKey))
-            
-                fantasyTeamsArray.fantasy_team_players = fantasyTeamsArray.fantasy_team_players.filter(fantasyTeamPlayer => fantasyTeamPlayer.id != fantasyTeamPlayerIdKey)
-                return {
-                    fantasyTeams: state.fantasyTeams.map(fantasyTeam => fantasyTeam.id === fantasyTeamsArray.id ? fantasyTeamsArray : fantasyTeam)
+
+            let deletingFantasyTeam = state.fantasyTeams.find(fantasyTeam => fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => fantasyTeamPlayer.id).includes(fantasyTeamPlayerIdKey))
+
+            const deletingFantasyTeamPlayer = deletingFantasyTeam.fantasy_team_players.find(fantasyTeamPlayer => fantasyTeamPlayer.id === fantasyTeamPlayerIdKey)
+
+
+            return {
+                fantasyTeams: state.fantasyTeams.map(fantasyTeam => fantasyTeam.id === deletingFantasyTeam.id ? {
+                    ...deletingFantasyTeam,
+                    players: deletingFantasyTeam.players.filter(player => player.id != deletingFantasyTeamPlayer.player.id),
+                    fantasy_team_players: deletingFantasyTeam.fantasy_team_players.filter(fantasyTeamPlayer => fantasyTeamPlayer.id != fantasyTeamPlayerIdKey)
                 }
+                    : fantasyTeam
+                )
+            }
 
         default:
             return state;
@@ -50,3 +84,6 @@ const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
 }
 
 export default fantasyTeamReducer
+
+
+

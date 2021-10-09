@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { createFantasyTeam, editFantasyTeam } from '../actions/fantasyTeamAction'
 import { connect } from 'react-redux'
+import './FantasyTeam.css'
 
 
 

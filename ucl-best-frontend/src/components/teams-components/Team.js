@@ -1,6 +1,7 @@
 
 import PlayerList from '../players-components/PlayerList.js';
 import React, { useState } from 'react';
+import './Team.css'
 
 
 function Team({ team, fantasyTeam}) {

@@ -5,6 +5,7 @@ import { deleteFantasyTeam, deleteFantasyTeamPlayer } from '../actions/fantasyTe
 import EditForm from './EditForm'
 import Teams from '../teams-components/Teams'
 import FantasyTeamPlayer from '../players-components/fantasyTeamPlayer'
+import './FantasyTeam.css'
 
 const FantasyTeamShow = (props) => {
     const [showEditForm, setShowEditForm] = useState(false)

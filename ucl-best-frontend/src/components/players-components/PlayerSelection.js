@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import PlayerList from './PlayerList';
+import './Player.css'
 
 const PlayerSelection = () => {
     const [isPlayerListVisible, setIsPlayerListVisible] = useState(false);

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { addFantasyTeamPlayer } from '../actions/fantasyTeamAction';
 import PlayerDetail from './PlayerDetail';
 import { togglePlayerAdded} from '../actions/playersActions';
+import './Player.css'
 
 function Player({ player, addFantasyTeamPlayer, fantasyTeam, togglePlayerAdded }) {
     const [showDetails, setShowDetails] = useState(false)

@@ -2,6 +2,8 @@ import React, {useState} from "react"
 import { deleteFantasyTeamPlayer } from "../actions/fantasyTeamAction"
 import { connect } from "react-redux"
 import PlayerDetail from "./PlayerDetail"
+import { togglePlayerAdded } from "../actions/playersActions"
+import './Player.css'
 
 
 const FantasyTeamPlayer = (props) => {
@@ -9,6 +11,7 @@ const FantasyTeamPlayer = (props) => {
     const [showPlayerDetails, setShowPlayerDetails] = useState(false)
     const deletePlayer = () => {
         props.deleteFantasyTeamPlayer(props.fantasyTeamPlayer.id)
+        props.togglePlayerAdded(props.fantasyTeamPlayer.player)
     }
     return (
         <React.Fragment>
@@ -23,7 +26,8 @@ const FantasyTeamPlayer = (props) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         
-        deleteFantasyTeamPlayer: (fantasyTeamPlayerId) => dispatch(deleteFantasyTeamPlayer(fantasyTeamPlayerId))
+        deleteFantasyTeamPlayer: (fantasyTeamPlayerId) => dispatch(deleteFantasyTeamPlayer(fantasyTeamPlayerId)),
+        togglePlayerAdded: (player) => dispatch(togglePlayerAdded(player)) 
     }
 }
 

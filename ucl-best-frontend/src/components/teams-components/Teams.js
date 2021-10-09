@@ -3,7 +3,7 @@ import React from 'react';
 import TeamList from './TeamList';
 import {connect} from 'react-redux'
 import { fetchTeams } from '../actions/teamAction'
-
+import './Team.css'
 
 class Teams extends React.Component {
    

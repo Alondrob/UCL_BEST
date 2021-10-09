@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './Player.css'
 
 export default function PlayerDetail({ player }) {
     // console.log(player)

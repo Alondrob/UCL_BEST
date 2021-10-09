@@ -3,6 +3,7 @@ import React from 'react'
 import Player from './Player'
 import { connect } from 'react-redux'
 import { fetchPlayers } from '../actions/playersActions'
+import './Player.css'
 
 
 
