@@ -1,0 +1,40 @@
+
+.fantasy-team-player {
+    text-align: center;
+    font-weight: 900;
+    color: rgb(233, 255, 220);
+    border-radius: 10;
+}
+
+.delete-player-button {
+    background: cyan;
+    font-weight: 500;
+}
+
+.fantasy-team-player-name {
+  width: 320px;
+  padding: 10px;
+  border: 5px solid rgb(173, 23, 23);
+  margin: 0;
+  background-color: darkcyan;
+}
+
+.players-header {
+    text-align: center;
+    font-weight: bold;
+    color:lavenderblush;
+}
+
+.player-detail {
+    text-align: center;
+    color: lavender;
+}
+
+.player-name {
+    color: darkorchid;
+    
+    font-size: 0.5cm;
+    font-weight: 800;
+    border-radius: 2;
+    text-overflow: ellipsis;
+}

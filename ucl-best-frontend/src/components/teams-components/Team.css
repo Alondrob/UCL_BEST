@@ -1,0 +1,26 @@
+.teams {
+    text-align: center;
+    align-content: center;
+    
+}
+
+.team-list {
+    text-align: center;
+    align-content: center;
+    color: rgb(96, 142, 160);
+}
+
+.select {
+    background: rgb(109, 165, 190);
+    text-align: center;
+    font-weight: 900;
+}
+
+.team {
+    font-weight: 800;
+}
+
+.show-players-button {
+    background: chocolate;
+    font-weight: 800;
+}

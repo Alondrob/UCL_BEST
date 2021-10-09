@@ -47,7 +47,11 @@ const FantasyTeamShow = (props) => {
                 <p >
                     <span className='team-details'>{fantasyTeam.country}</span>
                 </p>
-            
+
+                
+            {showTeams && <Teams fantasyTeam={fantasyTeam} />}
+            {showEditForm && <EditForm fantasyTeam={fantasyTeam} setShowEditForm={setShowEditForm} />}
+
             {showPlayersState && <React.Fragment>
                 <h1>Players</h1>
                 {fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => <FantasyTeamPlayer key={fantasyTeamPlayer.id} fantasyTeamPlayer={fantasyTeamPlayer} />)}
@@ -59,8 +63,7 @@ const FantasyTeamShow = (props) => {
 
             <button onClick={renderTeams}> Add Players </button>
 
-            {showTeams && <Teams fantasyTeam={fantasyTeam} />}
-            {showEditForm && <EditForm fantasyTeam={fantasyTeam} setShowEditForm={setShowEditForm} />}
+            
             
         </div>
     )
