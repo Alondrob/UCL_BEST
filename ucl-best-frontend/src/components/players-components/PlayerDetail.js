@@ -18,7 +18,7 @@ export default function PlayerDetail({ player }) {
 
 
     return (
-        <div>
+        <div className='player-detail'>
             {playerState.map(item => {
                 return <h3> {item} </h3>
             })}

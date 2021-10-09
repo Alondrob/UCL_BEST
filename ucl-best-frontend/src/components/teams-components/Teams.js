@@ -15,9 +15,9 @@ class Teams extends React.Component {
         console.log('teams.js', this.props)
         // console.log(this.props.teams)
         return (
-            <div >
+            <div className="teams">
                 {/* <PlayerSelection /> */}
-                <TeamList teams={this.props.teams} fantasyTeam={this.props.fantasyTeam} />
+                <TeamList className='team-list' teams={this.props.teams} fantasyTeam={this.props.fantasyTeam} />
             </div>
         );
         

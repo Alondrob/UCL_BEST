@@ -6,7 +6,7 @@ function HomePage() {
     console.log('HomePage.js')
     return (
         <div id="homepage">
-            Soccer App
+           
         </div>
     )
 }

@@ -22,10 +22,10 @@ function Player({ player, addFantasyTeamPlayer, fantasyTeam, togglePlayerAdded }
     return (
         <div>
             <p>
-                <span onClick={() => {
+                <span className="player-name" onClick={() => {
                     setShowDetails(!showDetails)
                 }}>{player.name} 
-                </span> &nbsp;
+                </span> &nbsp;<br></br>
                 {player.added ? <span> Player Added </span> : <button onClick={onclick}> Add A Player </button>}
             </p>
             

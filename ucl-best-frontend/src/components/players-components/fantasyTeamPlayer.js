@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import { deleteFantasyTeamPlayer } from "../actions/fantasyTeamAction"
 import { connect } from "react-redux"
 import PlayerDetail from "./PlayerDetail"
+import './Player.css'
 
 
 const FantasyTeamPlayer = (props) => {
@@ -12,8 +13,16 @@ const FantasyTeamPlayer = (props) => {
     }
     return (
         <React.Fragment>
-        <p><span onClick={() => setShowPlayerDetails(!showPlayerDetails)}>{props.fantasyTeamPlayer.player.name}</span> &nbsp;<button  onClick={deletePlayer}> Delete Player </button></p>
-        {showPlayerDetails && <PlayerDetail player={props.fantasyTeamPlayer.player}/>}
+            <p className="fantasy-team-player">
+                
+                <span onClick={() => setShowPlayerDetails(!showPlayerDetails)}>     
+                    <span className="fantasy-team-player-name">{props.fantasyTeamPlayer.player.name}</span><br></br><br></br>
+                    <button className='delete-player-button' onClick={deletePlayer}> Delete Player </button><br></br>
+                </span> &nbsp;<br></br>
+                
+                
+            </p>
+            {showPlayerDetails && <PlayerDetail player={props.fantasyTeamPlayer.player}/>}
         </React.Fragment>
     )
 

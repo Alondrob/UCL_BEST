@@ -1,6 +1,8 @@
 
 import PlayerList from '../players-components/PlayerList.js';
 import React, { useState } from 'react';
+import './Team.css'
+import '../players-components/Player.css'
 
 
 function Team({ team, fantasyTeam}) {
@@ -16,9 +18,11 @@ function Team({ team, fantasyTeam}) {
             <p> {team.name}
 
             </p>
-            <a href={team.website} target="_blank"> {team.website}</a><br></br>
-            <a href={`mailto:${team.email}`}> Email Us </a><br></br>
-            <button onClick={onClick}> Show Players</button>
+            <a href={team.website} target="_blank"> {team.website}</a>
+            <br></br>
+            <a href={`mailto:${team.email}`}> Email Us </a>
+            <br></br>
+            <button className="show-players-button" onClick={onClick}> Show Players</button>
             {showPlayers && <PlayerList players={team.players} fantasyTeam={fantasyTeam} />}
         </div>
     );

@@ -12,12 +12,12 @@ import './FantasyTeam.css'
 const FantasyTeam = ({ fantasyTeam, setComparedTeams }) => {
 
 
-    console.log('FantasyTeam.js', fantasyTeam)
+    // console.log('ft2',fantasyTeam)
 
     return (
         <React.Fragment>
             <p >
-                <button onClick={() => setComparedTeams(fantasyTeam)}> Compare Players </button>
+                {/* <button onClick={() => setComparedTeams(fantasyTeam)}> Compare Players </button> */}
                 <Link to={`/fantasy_teams/${fantasyTeam.id}`}>
                     <span className="all-fantasy-teams">{fantasyTeam.name}</span> <br></br>
 
