@@ -20,13 +20,12 @@ class FantasyTeams extends Component {
     
     }
 
+    
+
 
     render() {
-        // const setComparedTeams = (fantasyTeam) => {
-        //     this.setState({
-        //         comparedTeams: [...this.state.comparedTeams, fantasyTeam]
-        //     })
-        // }
+        console.log('fantasyTeam.js', this.props)
+ 
         const fantasyTeams = this.props.fantasyTeams.map((fantasyTeam) => <FantasyTeam  key={fantasyTeam.id} fantasyTeam={fantasyTeam} />)
     //    console.log('array', this.props.fantasyTeams)
 

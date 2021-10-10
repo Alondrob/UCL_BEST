@@ -37,16 +37,25 @@ const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
 
             case "DELETE_FANTASY_TEAM_PLAYER":
             const fantasyTeamPlayerIdKey = parseInt(action.fantasyTeamPlayerIdKey)
+
             let fantasyTeamsArray = state.fantasyTeams.find(fantasyTeam => fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => fantasyTeamPlayer.id).includes(fantasyTeamPlayerIdKey))
             
                 fantasyTeamsArray.fantasy_team_players = fantasyTeamsArray.fantasy_team_players.filter(fantasyTeamPlayer => fantasyTeamPlayer.id != fantasyTeamPlayerIdKey)
                 return {
                     fantasyTeams: state.fantasyTeams.map(fantasyTeam => fantasyTeam.id === fantasyTeamsArray.id ? fantasyTeamsArray : fantasyTeam)
                 }
-
             case "SORT_TEAMS":
                 
-                const sortedTeams = state.fantasyTeams.sort((a, b) => a.name - b.name)
+                const sortedTeams = state.fantasyTeams.sort((a, b) => { if (a.name < b.name) {
+                    return -1;
+                  }
+                  else if (a.name > b.name) {
+                      return 1;
+                  }
+                  else {
+                      return 0;
+                  }
+            })
                 return {
                     fantasyTeams: [...sortedTeams]
                 }
