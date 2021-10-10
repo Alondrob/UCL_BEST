@@ -5,6 +5,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AboutUs from './components/general-components/AboutUs';
 import HomePage from './components/general-components/HomePage';
+import Terms from './components/general-components/Terms'
 import Teams from './components/teams-components/Teams.js';
 import Team from './components/teams-components/Teams.js';
 import FantasyTeams from './components/fantasyTeams-components/FantasyTeams.js';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/about-us" exact component={() => <AboutUs />} />
           <Route path="/teams" exact component={() => <Teams />} />
           <Route path="/fantasy_teams" exact component={() => <FantasyTeams />} />
+          <Route path="/terms" exact component={Terms}/>
          
           <Route path="/team" exact component={Team} />
           

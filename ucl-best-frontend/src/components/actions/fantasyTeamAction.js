@@ -88,8 +88,27 @@ export const deleteFantasyTeamPlayer = (fantasyTeamPlayerId) => {
     }
 }
 
-export const sortTeams = () => {
-    return (dispatch) => {
-        dispatch({type: 'SORT_TEAMS'})
-    }
-}
+        export const sortTeams = () => {
+            return (dispatch) => {
+                dispatch({type: 'SORT_TEAMS'})
+            }
+        }
+
+
+        export const backwardsTeams = () => {
+            return (dispatch) => {
+                dispatch({ type: "BACKWARDS_TEAMS" })
+            }
+        }
+
+        export const filterPosition = () => {
+            return (dispatch) => {
+                dispatch({ type: 'FILTER_POSITIONS' })
+            }
+        }
+
+        export const searchedTeams = (userInput) => {
+            return (dispatch) => {
+                dispatch({type: 'SEARCHED_TEAMS', searchedTeams: userInput})
+            }
+        }

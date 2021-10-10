@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { deleteFantasyTeam, deleteFantasyTeamPlayer } from '../actions/fantasyTeamAction'
+import { deleteFantasyTeam, deleteFantasyTeamPlayer, filterPosition } from '../actions/fantasyTeamAction'
 import EditForm from './EditForm'
 import Teams from '../teams-components/Teams'
 import FantasyTeamPlayer from '../players-components/fantasyTeamPlayer'
@@ -31,6 +31,10 @@ const FantasyTeamShow = (props) => {
 
     const showPlayers = () => {
         setShowPlayers(!showPlayersState)
+    }
+
+    const filterPosition = () => {
+        props.filterPosition()
     }
 
   
@@ -72,6 +76,7 @@ const FantasyTeamShow = (props) => {
             
             {showPlayersState && <React.Fragment>
                 <h1 className='players-header'> Players</h1><br></br>
+                <button onClick={filterPosition}> Filter Players By Position</button>
                 {fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => <FantasyTeamPlayer key={fantasyTeamPlayer.id} fantasyTeamPlayer={fantasyTeamPlayer} />)}
                 </React.Fragment>}
 
@@ -94,7 +99,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         deleteFantasyTeam: (fantasyTeam) => dispatch(deleteFantasyTeam(fantasyTeam)),
-        deleteFantasyTeamPlayer: (fantasyTeamPlayerId) => dispatch(deleteFantasyTeamPlayer(fantasyTeamPlayerId))
+        deleteFantasyTeamPlayer: (fantasyTeamPlayerId) => dispatch(deleteFantasyTeamPlayer(fantasyTeamPlayerId)),
+        filterPosition: () => dispatch(filterPosition())
     }
 }
 

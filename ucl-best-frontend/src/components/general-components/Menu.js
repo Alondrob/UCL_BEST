@@ -14,6 +14,7 @@ function Menu()
             <Link className="link-css" to="/fantasy_teams"> Show All Fantasy Teams </Link>&nbsp;&nbsp;
             {/* <Link to="/teams"> Go To Teams </Link>&nbsp;&nbsp; */}
             <Link className="link-css" to="/fantasy_teams/new"> Create New Fantasy Team</Link>&nbsp;&nbsp;
+            <Link to="/terms"> Terms </Link>
         </div>
     )
 }

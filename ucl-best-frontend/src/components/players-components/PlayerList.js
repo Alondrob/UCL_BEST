@@ -14,7 +14,17 @@ class PlayerList extends React.Component {
     render() {
         return (
             <div>
-                {this.props.playersInState.map(player => <Player key={player.id} player={player} fantasyTeam={this.props.fantasyTeam}  />)}
+                {this.props.playersInState.sort((a, b) => {
+                    if(a.name < b.name) {
+                        return 1
+                    }
+                    else if (a.name > b.name) {
+                        return -1
+                    }
+                    else {
+                        return 0
+                    }
+                }).map(player => <Player key={player.id} player={player} fantasyTeam={this.props.fantasyTeam}  />)}
 
             </div>
         )

@@ -11,7 +11,7 @@ import './FantasyTeam.css'
 // console.log({fantasyTeam})
 const FantasyTeam = ({ fantasyTeam, setComparedTeams }) => {
 
-
+debugger
     // console.log('ft2',fantasyTeam)
 
     return (
@@ -20,6 +20,7 @@ const FantasyTeam = ({ fantasyTeam, setComparedTeams }) => {
                 {/* <button onClick={() => setComparedTeams(fantasyTeam)}> Compare Players </button> */}
                 <Link to={`/fantasy_teams/${fantasyTeam.id}`}>
                     <span className="all-fantasy-teams">{fantasyTeam.name}</span> <br></br>
+
 
                 </Link>
             </p>

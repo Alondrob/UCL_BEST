@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchFantasyTeams, sortTeams} from '../actions/fantasyTeamAction'
+import { fetchFantasyTeams, sortTeams, backwardsTeams, searchedTeams} from '../actions/fantasyTeamAction'
 import FantasyTeam from './FantasyTeam'
 import { Link } from 'react-router-dom'
 import './FantasyTeam.css'
@@ -11,7 +11,8 @@ class FantasyTeams extends Component {
         super(props)
 
         this.state = {
-            filteredTeams: props.fantasyTeams
+            filteredTeams: props.fantasyTeams,
+            sortedTeams: false
         }
     }
 
@@ -25,18 +26,33 @@ class FantasyTeams extends Component {
 
     render() {
         console.log('fantasyTeam.js', this.props)
- 
         const fantasyTeams = this.props.fantasyTeams.map((fantasyTeam) => <FantasyTeam  key={fantasyTeam.id} fantasyTeam={fantasyTeam} />)
     //    console.log('array', this.props.fantasyTeams)
 
-        console.log('1', fantasyTeams)    
+        // console.log('1', fantasyTeams)    
 
         // const fantasyTeams2 = this.props.fantasyTeams.map((newTeam) => <li>key={newTeam.id}, team={newTeam})</li>)
 
         const filterTeams = () => {
-            console.log(this.props.fantasyTeams)
-            this.props.sortedTeams()
+            // console.log(this.props.fantasyTeams)
+            if(this.state.sortedTeams) {
+                this.props.sortedTeams()
+            }
+            else {
+                this.props.backwardsTeams()
+            }
+            this.setState({
+                sortedTeams: !this.state.sortedTeams
+            })
         }
+
+        const searchBar = (event) => {
+            const userInput = event.target.value 
+            this.props.searchedTeams(userInput)
+        }
+        // const sortTeams = () => {
+        //     this.props.backwardsTeams()
+        // }
 
         // console.log("2", fantasyTeams2)
 
@@ -46,7 +62,9 @@ class FantasyTeams extends Component {
                 <span className='fantasy-teams-backround'>{fantasyTeams}</span>
                 {/* <h1>{this.props.fantasyTeams[0]}</h1> */}
             <button onClick={filterTeams}> filter Teams </button>
-                
+                {/* <button onClick={sortTeams}> Sort Teams </button> */}
+                <label> Search Bar </label>
+                <input onChange={searchBar} type='text'/> 
                 {/* {this.state.comparedTeams.map(fantasyTeam =>
                     <React.Fragment key={fantasyTeam.id}>
                         <h2> {fantasyTeam.name} </h2>
@@ -62,7 +80,8 @@ class FantasyTeams extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        fantasyTeams: state.fantasyTeamReducer.fantasyTeams
+        fantasyTeams: state.fantasyTeamReducer.filteredTeams,
+        
     }
 
 }
@@ -71,7 +90,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchFantasyTeams: () => dispatch(fetchFantasyTeams()),
-        sortedTeams: () => dispatch(sortTeams())
+        sortedTeams: () => dispatch(sortTeams()),
+        backwardsTeams: () => dispatch(backwardsTeams()),
+        searchedTeams: (userInput) => dispatch(searchedTeams(userInput))
     }
 }
 
