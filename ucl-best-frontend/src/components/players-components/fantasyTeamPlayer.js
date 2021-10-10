@@ -15,7 +15,8 @@ const FantasyTeamPlayer = (props) => {
     }
     return (
         <React.Fragment>
-        <p><span onClick={() => setShowPlayerDetails(!showPlayerDetails)}>{props.fantasyTeamPlayer.player.name}</span> &nbsp;<button  onClick={deletePlayer}> Delete Player </button></p>
+            <p><span className="fantasy-team-player-name" onClick={() => setShowPlayerDetails(!showPlayerDetails)}>{props.fantasyTeamPlayer.player.name}</span> &nbsp;<br></br><br></br>
+                <button className="delete-player-button" onClick={deletePlayer}> Delete Player </button></p>
         {showPlayerDetails && <PlayerDetail player={props.fantasyTeamPlayer.player}/>}
         </React.Fragment>
     )

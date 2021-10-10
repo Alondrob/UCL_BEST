@@ -9,13 +9,15 @@
 .delete-player-button {
     background: cyan;
     font-weight: 500;
+    font-weight: 900;
+    border: 4px dotted blue;
 }
 
 .fantasy-team-player-name {
   width: 320px;
   padding: 10px;
-  border: 5px solid rgb(173, 23, 23);
-  margin: 0;
+  border: 2px solid red;
+  border-radius: 50px 20px;
   background-color: darkcyan;
 }
 
@@ -37,4 +39,16 @@
     font-weight: 800;
     border-radius: 2;
     text-overflow: ellipsis;
+}
+
+.add-player-button {
+    border-radius: 40px;
+    background: chartreuse;
+}
+
+.player-info {
+    border-radius: 70px;
+    background: blanchedalmond;
+    color: black;
+    font-weight: 900;
 }

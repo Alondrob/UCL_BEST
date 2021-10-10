@@ -46,20 +46,16 @@
     flex-wrap: wrap;
 }
 
-/* .fantasy-teams-backround {
-    /* background: url('https://images.indianexpress.com/2020/04/uefa-champions-league.jpg');
-    background-position: center;
-    /* background-repeat: no-repeat; */
-    /* background-size: 1500px;
+
+
+.fantasy-team-backround {
+    background: url('https://cdn.vox-cdn.com/thumbor/2EWRC6pbCPZ0jNbSpOHqiTP8DbU=/0x0:4500x3000/1200x800/filters:focal(1110x659:1830x1379)/cdn.vox-cdn.com/uploads/chorus_image/image/69919284/1235455680.0.jpg');
+    text-align: center;
     height: 100vh;
-    text-align: center; */
 
-    .fantasy-teams-backround {
-        background: url('https://cdn.vox-cdn.com/thumbor/2EWRC6pbCPZ0jNbSpOHqiTP8DbU=/0x0:4500x3000/1200x800/filters:focal(1110x659:1830x1379)/cdn.vox-cdn.com/uploads/chorus_image/image/69919284/1235455680.0.jpg');
-        text-align: center;
-    }
+}
 
-/* fantasy-team-show */
+
 
 #fantasy-team-show {
     background:url('https://images2.minutemediacdn.com/image/upload/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/Real-Madrid-v-Liverpool---UEFA-Champions-League-Fi-1135101713f01481961d87fe432a2817.jpg');
@@ -68,6 +64,7 @@
     background-size: 1500px;
     height: 300vh;
     background-color: lightgreen;
+    text-align: center;
 }
 .fantasy-team-details {
     text-align: center;
@@ -90,16 +87,10 @@
     background-color: coral;
     color: indigo;
     font-weight: 800;
+    border-radius: 10px;
+    font-weight: 800;
      
   
  
 }
 
-.fantasy-team {
-    text-align: center;
-}
-
-.buttons {
-    text-align: center;
-    align-content: center;
-}

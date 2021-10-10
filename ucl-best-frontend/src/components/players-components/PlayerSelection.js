@@ -13,7 +13,7 @@ const PlayerSelection = () => {
 
 
     return (
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+        <div >
             <div>
                 <button id="player-selection" onClick={onClick}>
                     Open Players List

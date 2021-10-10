@@ -5,9 +5,10 @@
 }
 
 .team-list {
+    border-radius: 50px;
     text-align: center;
-    align-content: center;
-    color: rgb(96, 142, 160);
+    background: cornflowerblue;
+    font-weight: 900;
 }
 
 .select {
@@ -16,8 +17,12 @@
     font-weight: 900;
 }
 
-.team {
-    font-weight: 800;
+.selected-team {
+    background: blanchedalmond;
+    border-radius: 40px;
+    color: blue;    
+    font-size: 30px;
+    font-weight: 900;
 }
 
 .show-players-button {

@@ -30,12 +30,13 @@ class TeamList extends Component {
 
             <div>
                 {/* {teams.map(team => <Team key={team.id} team={team} />)} */}
-                <select onChange={handleChange}>
+                <select className="team-list" onChange={handleChange}>
                     <option value="0">Select a team</option>
                     {this.props.teams.map(team => <option value={team.id} key={team.id}> {team.name} </option>)}
                 </select>
                 {this.state.team && <Team key={this.state.team.id} team={this.state.team} fantasyTeam={this.props.fantasyTeam} />}
             </div>
+            
         );
 
     }

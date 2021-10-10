@@ -57,12 +57,14 @@ const FantasyTeamShow = (props) => {
                 <h1>Players</h1>
                 {fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => <FantasyTeamPlayer key={fantasyTeamPlayer.id} fantasyTeamPlayer={fantasyTeamPlayer} />)}
                 </React.Fragment>}
-            <button onClick={showPlayers}> Present Team's Players </button>
-            <button onClick={onEdit}> Edit Team </button>
+            
+                <button className="fantasy-team-buttons" onClick={showPlayers}> Present Team's Players </button>
+                <button className="fantasy-team-buttons" onClick={onEdit}> Edit Team </button>
 
-            <button onClick={onDelete}> Delete Team </button>
+                <button className="fantasy-team-buttons" onClick={onDelete}> Delete Team </button>
 
-            <button onClick={renderTeams}> Add Players </button>
+                <button className="fantasy-team-buttons" onClick={renderTeams}> Add Players </button>
+            
 
             
             

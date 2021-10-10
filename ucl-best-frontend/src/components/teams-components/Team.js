@@ -13,13 +13,13 @@ function Team({ team, fantasyTeam}) {
 
     console.log('Team.js', team)
     return (
-        <div>
-            <p> {team.name}
-
+        <div className="selected-team">
+            <p> 
+                <span className='selected-team'>{team.name}</span>
             </p>
             <a href={team.website} target="_blank"> {team.website}</a><br></br>
             <a href={`mailto:${team.email}`}> Email Us </a><br></br>
-            <button onClick={onClick}> Show Players</button>
+            <button className="show-players-button" onClick={onClick}> Show Players</button><br></br>
             {showPlayers && <PlayerList players={team.players} fantasyTeam={fantasyTeam} />}
         </div>
     );
