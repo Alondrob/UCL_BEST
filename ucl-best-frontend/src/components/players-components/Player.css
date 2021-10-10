@@ -37,4 +37,6 @@
     font-weight: 800;
     border-radius: 2;
     text-overflow: ellipsis;
+    border: 2px solid black;
+    background: white;
 }

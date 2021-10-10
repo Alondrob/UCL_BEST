@@ -87,3 +87,9 @@ export const deleteFantasyTeamPlayer = (fantasyTeamPlayerId) => {
              dispatch({ type: 'DELETE_FANTASY_TEAM_PLAYER', fantasyTeamPlayerIdKey: fantasyTeamPlayerId })
     }
 }
+
+export const sortTeams = () => {
+    return (dispatch) => {
+        dispatch({type: 'SORT_TEAMS'})
+    }
+}

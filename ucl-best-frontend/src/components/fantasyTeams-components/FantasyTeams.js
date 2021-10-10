@@ -1,14 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchFantasyTeams } from '../actions/fantasyTeamAction'
+import { fetchFantasyTeams, sortTeams} from '../actions/fantasyTeamAction'
 import FantasyTeam from './FantasyTeam'
 import { Link } from 'react-router-dom'
 import './FantasyTeam.css'
 
 class FantasyTeams extends Component {
 
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            filteredTeams: props.fantasyTeams
+        }
+    }
+
     componentDidMount() {
         this.props.fetchFantasyTeams()
+    
     }
 
 
@@ -21,18 +30,23 @@ class FantasyTeams extends Component {
         const fantasyTeams = this.props.fantasyTeams.map((fantasyTeam) => <FantasyTeam  key={fantasyTeam.id} fantasyTeam={fantasyTeam} />)
     //    console.log('array', this.props.fantasyTeams)
 
-        console.log('1', this.props.fantasyTeams)    
+        console.log('1', fantasyTeams)    
 
-        const fantasyTeams2 = this.props.fantasyTeams.map((newTeam) => <li>key={newTeam.id}, team={newTeam})</li>)
+        // const fantasyTeams2 = this.props.fantasyTeams.map((newTeam) => <li>key={newTeam.id}, team={newTeam})</li>)
 
-        console.log("2", fantasyTeams2)
+        const filterTeams = () => {
+            console.log(this.props.fantasyTeams)
+            this.props.sortedTeams()
+        }
+
+        // console.log("2", fantasyTeams2)
 
         return (
             <div className="fantasy-teams-backround">
                 <h1 > <span className="fantasy-teams-header">Your Teams </span></h1>
                 <span className='fantasy-teams-backround'>{fantasyTeams}</span>
-         
-            
+                {/* <h1>{this.props.fantasyTeams[0]}</h1> */}
+            <button onClick={filterTeams}> filter Teams </button>
                 
                 {/* {this.state.comparedTeams.map(fantasyTeam =>
                     <React.Fragment key={fantasyTeam.id}>
@@ -57,7 +71,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchFantasyTeams: () => dispatch(fetchFantasyTeams())
+        fetchFantasyTeams: () => dispatch(fetchFantasyTeams()),
+        sortedTeams: () => dispatch(sortTeams())
     }
 }
 
