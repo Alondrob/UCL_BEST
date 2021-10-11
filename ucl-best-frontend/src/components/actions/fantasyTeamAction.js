@@ -90,6 +90,12 @@ export const deleteFantasyTeamPlayer = (fantasyTeamPlayerId) => {
 
 export const sortFantasyTeams = () => {
     return(dispatch) => {
-        dispatch({type: 'SORT_FANTASY_TEAMS'})
+        dispatch({type: "SORT_FANTASY_TEAMS"})
+    }
+}
+
+export const backwardsTeams = () => {
+    return (dispatch) => {
+        dispatch({type: 'BACKWARDS_TEAMS'})
     }
 }

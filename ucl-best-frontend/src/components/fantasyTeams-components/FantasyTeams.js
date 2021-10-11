@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchFantasyTeams, sortFantasyTeams } from '../actions/fantasyTeamAction'
+import { backwardsTeams, fetchFantasyTeams, sortFantasyTeams } from '../actions/fantasyTeamAction'
 import FantasyTeam from './FantasyTeam'
 import './FantasyTeam.css'
 
@@ -21,7 +21,15 @@ class FantasyTeams extends Component {
 
     render() {
         const sortedTeams = () => {
-            this.props.sortFantasyTeams()
+            if (this.state.sortedTeams) {
+                this.props.sortFantasyTeams()
+            }
+            else {
+                this.props.backwardsTeams()
+            }
+            this.setState({
+                sortedTeams: !this.state.sortedTeams
+            })
         }
         const fantasyTeams = this.props.fantasyTeams.map((fantasyTeam) => <FantasyTeam  key={fantasyTeam.id} fantasyTeam={fantasyTeam} />)
         console.log(this.state.comparedTeams)
@@ -56,7 +64,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchFantasyTeams: () => dispatch(fetchFantasyTeams()),
-        sortFantasyTeams: () => dispatch(sortFantasyTeams())
+        sortFantasyTeams: () => dispatch(sortFantasyTeams()),
+        backwardsTeams: () => dispatch(backwardsTeams())
     }
 }
 

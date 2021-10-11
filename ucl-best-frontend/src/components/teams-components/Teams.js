@@ -11,9 +11,12 @@ class Teams extends React.Component {
         this.props.fetchTeams()
        
     }
+
+   
     render() {
         console.log('teams.js', this.props)
         // console.log(this.props.teams)
+       
         return (
             <div >
                 {/* <PlayerSelection /> */}

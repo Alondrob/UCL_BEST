@@ -13,8 +13,7 @@ class TeamList extends Component {
         }
     }
     render() {
-        console.log('Teamlist.js', this.props)
-        console.log('teamlist state', this.state)
+       
         const handleChange = (event) => {
             if (event.target.value === "0") {
                 return;
@@ -25,13 +24,26 @@ class TeamList extends Component {
                 team: selectedTeam
             })
         }
+
+        const abTeams = this.props.teams.sort((a, b) => {
+            if (a.name < b.name) {
+                return -1
+            }
+            else if (a.name > b.name) {
+                return 1
+            }
+            else {
+                return 0
+            }
+        })
         return (
 
             <div>
                 {/* {teams.map(team => <Team key={team.id} team={team} />)} */}
                 <select onChange={handleChange}>
                     <option value="0">Select a team</option>
-                    {this.props.teams.map(team => <option value={team.id} key={team.id}> {team.name} </option>)}
+                   
+                    {abTeams.map(team => <option value={team.id} key={team.id}> {team.name} </option>)}
                 </select>
                 {this.state.team && <Team key={this.state.team.id} team={this.state.team} fantasyTeam={this.props.fantasyTeam} />}
             </div>
