@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchFantasyTeams } from '../actions/fantasyTeamAction'
+import { fetchFantasyTeams, sortFantasyTeams } from '../actions/fantasyTeamAction'
 import FantasyTeam from './FantasyTeam'
 import './FantasyTeam.css'
 
@@ -20,19 +20,18 @@ class FantasyTeams extends Component {
 
 
     render() {
-        const setComparedTeams = (fantasyTeam) => {
-            this.setState({
-                comparedTeams: [...this.state.comparedTeams, fantasyTeam]
-            })
+        const sortedTeams = () => {
+            this.props.sortFantasyTeams()
         }
-        const fantasyTeams = this.props.fantasyTeams.map((fantasyTeam) => <FantasyTeam setComparedTeams={setComparedTeams} key={fantasyTeam.id} fantasyTeam={fantasyTeam} />)
+        const fantasyTeams = this.props.fantasyTeams.map((fantasyTeam) => <FantasyTeam  key={fantasyTeam.id} fantasyTeam={fantasyTeam} />)
         console.log(this.state.comparedTeams)
 
         return (
             <div className='fantasy-team-backround'>
                 <h1 > <span className="fantasy-teams-header">Your Teams </span></h1>
                 <span >{fantasyTeams}</span>
-                <h1>Compare Fantasy Teams</h1>
+                <button onClick={sortedTeams}> sort teams</button>
+                
                 {this.state.comparedTeams.map(fantasyTeam =>
                     <React.Fragment key={fantasyTeam.id}>
                         <h2> {fantasyTeam.name} </h2>
@@ -56,7 +55,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchFantasyTeams: () => dispatch(fetchFantasyTeams())
+        fetchFantasyTeams: () => dispatch(fetchFantasyTeams()),
+        sortFantasyTeams: () => dispatch(sortFantasyTeams())
     }
 }
 

@@ -17,7 +17,6 @@ const FantasyTeam = ({ fantasyTeam, setComparedTeams }) => {
     return (
         <React.Fragment>
             <p >
-                <button onClick={() => setComparedTeams(fantasyTeam)}> Compare Players </button>
                 <Link to={`/fantasy_teams/${fantasyTeam.id}`}>
                     <span className="all-fantasy-teams">{fantasyTeam.name}</span> <br></br>
 

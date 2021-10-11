@@ -44,6 +44,38 @@ const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
                     fantasyTeams: state.fantasyTeams.map(fantasyTeam => fantasyTeam.id === fantasyTeamsArray.id ? fantasyTeamsArray : fantasyTeam)
                 }
 
+            case 'SORT_FANTASY_TEAMS':
+              
+                const sortedTeams = state.fantasyTeams
+                // .sort((a, b) => {
+                
+                //     if (a.name < b.name) {
+                //         return 1
+                //     }
+                //     else if (a.name > b.name) {
+                //         return -1
+                //     }
+                //     else {
+                //         return 0
+                //     }
+                // }) 
+            debugger
+                    return {
+                        fantasyTeams: sortedTeams.sort((a, b) => {
+
+                            if (a.name < b.name) {
+                                return 1
+                            }
+                            else if (a.name > b.name) {
+                                return -1
+                            }
+                            else {
+                                return 0
+                            }
+                        })
+                    }
+                
+
         default:
             return state;
     }
