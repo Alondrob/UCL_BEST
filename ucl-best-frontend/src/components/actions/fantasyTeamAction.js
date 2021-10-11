@@ -112,3 +112,8 @@ export const deleteFantasyTeamPlayer = (fantasyTeamPlayerId) => {
                 dispatch({type: 'SEARCHED_TEAMS', searchedTeams: userInput})
             }
         }
+        export const filteredByPlayers = () => {
+            return(dispatch) => {
+                dispatch({type: 'FILTER_BY_PLAYERS'})
+            }
+        }

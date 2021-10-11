@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchFantasyTeams, sortTeams, backwardsTeams, searchedTeams} from '../actions/fantasyTeamAction'
+import { fetchFantasyTeams, sortTeams, backwardsTeams, searchedTeams, filteredByPlayers} from '../actions/fantasyTeamAction'
 import FantasyTeam from './FantasyTeam'
 import { Link } from 'react-router-dom'
 import './FantasyTeam.css'
@@ -50,29 +50,22 @@ class FantasyTeams extends Component {
             const userInput = event.target.value 
             this.props.searchedTeams(userInput)
         }
-        // const sortTeams = () => {
-        //     this.props.backwardsTeams()
-        // }
-
-        // console.log("2", fantasyTeams2)
+       
+        const numOfPlayers = () => {
+            this.props.filteredByPlayers()
+        }
 
         return (
             <div className="fantasy-teams-backround">
                 <h1 > <span className="fantasy-teams-header">Your Teams </span></h1>
                 <span className='fantasy-teams-backround'>{fantasyTeams}</span>
-                {/* <h1>{this.props.fantasyTeams[0]}</h1> */}
-            <button onClick={filterTeams}> filter Teams </button>
-                {/* <button onClick={sortTeams}> Sort Teams </button> */}
+                
+                <button onClick={filterTeams}> filter Teams </button>&nbsp;
+                <button onClick={numOfPlayers}> Filter By Number of Players </button>
+                
                 <label> Search Bar </label>
                 <input onChange={searchBar} type='text'/> 
-                {/* {this.state.comparedTeams.map(fantasyTeam =>
-                    <React.Fragment key={fantasyTeam.id}>
-                        <h2> {fantasyTeam.name} </h2>
-                        <ul>
-                            {fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => <li key={fantasyTeamPlayer.id}>{fantasyTeamPlayer.player.name}</li>)}
-                        </ul>
-                    </React.Fragment>
-                )} */}
+            
             </div>
         )
     }
@@ -92,7 +85,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchFantasyTeams: () => dispatch(fetchFantasyTeams()),
         sortedTeams: () => dispatch(sortTeams()),
         backwardsTeams: () => dispatch(backwardsTeams()),
-        searchedTeams: (userInput) => dispatch(searchedTeams(userInput))
+        searchedTeams: (userInput) => dispatch(searchedTeams(userInput)),
+        filteredByPlayers: () => dispatch(filteredByPlayers())
     }
 }
 

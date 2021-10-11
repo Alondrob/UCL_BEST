@@ -11,7 +11,7 @@ import './FantasyTeam.css'
 // console.log({fantasyTeam})
 const FantasyTeam = ({ fantasyTeam, setComparedTeams }) => {
 
-debugger
+// debugger
     // console.log('ft2',fantasyTeam)
 
     return (

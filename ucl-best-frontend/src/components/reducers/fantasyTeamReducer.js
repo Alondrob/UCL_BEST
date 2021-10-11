@@ -111,6 +111,28 @@ const fantasyTeamReducer = (state = { fantasyTeams: [], filteredTeams: [] }, act
                     fantasyTeams: state.fantasyTeams,
                     filteredTeams: [...state.fantasyTeams.filter(fantasyTeam => fantasyTeam.name.toLowerCase().includes(action.searchedTeams.toLowerCase()))]
                 }
+
+                case 'FILTER_BY_PLAYERS':
+                    
+                    const numOfPlayers = state.fantasyTeams.map((fantasyTeam) => fantasyTeam.fantasy_team_players)
+          
+                    const playersInTeam = numOfPlayers.sort((a,b) => 
+                    {
+                        if (a < b) {
+                        return 1
+                        }
+                        else if (a > b) {
+                            return -1
+                        }
+                        else {
+                            return 0
+                        }
+                    })
+                    debugger
+                    return {
+                        fantasyTeams: [...playersInTeam],
+                        filteredTeams: [...playersInTeam]
+                    }
          
 
 
