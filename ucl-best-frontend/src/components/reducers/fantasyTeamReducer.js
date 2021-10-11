@@ -113,25 +113,28 @@ const fantasyTeamReducer = (state = { fantasyTeams: [], filteredTeams: [] }, act
                 }
 
                 case 'FILTER_BY_PLAYERS':
+                   
+                    const numOfPlayers = state.fantasyTeams.map((fantasyTeam) => 
+                        fantasyTeam.fantasy_team_players.sort())
+                            // fantasyTeam.fantasy_team_players.sort((a,b) => {
+                            //     if (a.length < b.length) {
+                            //         return -1
+                            //     }
+                            //     else if (a.length > b.length) {
+                            //         return 1
+                            //     }
+                            //     else {
+                            //         return 0
+                            //     }
+                            // })
+                        
+                    // )
+           
+         
                     
-                    const numOfPlayers = state.fantasyTeams.map((fantasyTeam) => fantasyTeam.fantasy_team_players)
-          
-                    const playersInTeam = numOfPlayers.sort((a,b) => 
-                    {
-                        if (a < b) {
-                        return 1
-                        }
-                        else if (a > b) {
-                            return -1
-                        }
-                        else {
-                            return 0
-                        }
-                    })
-                    debugger
                     return {
-                        fantasyTeams: [...playersInTeam],
-                        filteredTeams: [...playersInTeam]
+                        fantasyTeams: [...numOfPlayers],
+                        filteredTeams: [...numOfPlayers]
                     }
          
 
