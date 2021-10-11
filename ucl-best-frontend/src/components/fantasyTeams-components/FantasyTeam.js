@@ -19,10 +19,10 @@ const FantasyTeam = ({ fantasyTeam, setComparedTeams }) => {
             <p >
                 
                 <Link to={`/fantasy_teams/${fantasyTeam.id}`}>
-                    <span className="all-fantasy-teams">{fantasyTeam.name}</span> <br></br>
+                    <span className="all-fantasy-teams">{fantasyTeam.name}</span> 
 
                 </Link>
-            </p>
+            </p><br></br>
 
 
         </React.Fragment>

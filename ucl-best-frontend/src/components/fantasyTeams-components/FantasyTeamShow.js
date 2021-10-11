@@ -38,23 +38,26 @@ const FantasyTeamShow = (props) => {
     // console.log('mapStateToProps', props.state)
     return (
         <div id="fantasy-team-show">
-            
+
+                <p >
+                    <span className='team-details'> Name:{fantasyTeam.name}</span>
+                </p><br></br>
                 <p > 
-                    <span className='team-details'>{fantasyTeam.nickname}</span>
-                </p>
+                    <span className='team-details'>Nickname: {fantasyTeam.nickname}</span>
+                </p><br></br>
                 <p >
-                    <span className='team-details'> {fantasyTeam.color}</span> 
-                </p>
+                    <span className='team-details'> Color: {fantasyTeam.color}</span> 
+                </p><br></br>
                 <p >
-                    <span className='team-details'>{fantasyTeam.country}</span>
-                </p>
+                    <span className='team-details'>Country: {fantasyTeam.country}</span><br></br>
+                </p><br></br>
 
                 
             {showTeams && <Teams fantasyTeam={fantasyTeam} />}
             {showEditForm && <EditForm fantasyTeam={fantasyTeam} setShowEditForm={setShowEditForm} />}
 
             {showPlayersState && <React.Fragment>
-                <h1>Players</h1>
+                <span className="players-header"> Team {fantasyTeam.name} Players</span><br></br><br></br>
                 {fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => <FantasyTeamPlayer key={fantasyTeamPlayer.id} fantasyTeamPlayer={fantasyTeamPlayer} />)}
                 </React.Fragment>}
             

@@ -26,17 +26,13 @@ class FantasyTeams extends Component {
 
         return (
             <div className='fantasy-team-backround'>
-                <h1 > <span className="fantasy-teams-header">Your Teams </span></h1>
-                <span >{fantasyTeams}</span>
+                <h1 > <span className="fantasy-teams-header">Fantasy Teams  </span></h1>
                 
-                {this.state.comparedTeams.map(fantasyTeam =>
-                    <React.Fragment key={fantasyTeam.id}>
-                        <h2> {fantasyTeam.name} </h2>
-                        <ul>
-                            {fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => <li key={fantasyTeamPlayer.id}>{fantasyTeamPlayer.player.name}</li>)}
-                        </ul>
-                    </React.Fragment>
-                )}
+                    <span >{fantasyTeams} <br></br><br></br></span>
+                
+               
+                
+             
             </div>
         )
     }

@@ -19,7 +19,7 @@ export class EditForm extends Component {
         }
     }
     render() {
-        console.log('EditForm.js', this.props)
+      
         const onChange = (event) => {
             this.setState({
                 [event.target.name]: event.target.value
@@ -33,15 +33,15 @@ export class EditForm extends Component {
         }
         return (
             <form onSubmit={onEdit}>
-                <label htmlFor="name"> Name </label>
-                <input name="name" type="text" onChange={onChange} value={this.state.name} />
-                <label htmlFor="nickname"> Nickname</label>
-                <input name="nickname" type="text" onChange={onChange} value={this.state.nickname} />
-                <label htmlFor="color"> Color </label>
-                <input name="color" type="text" onChange={onChange} value={this.state.color}/>
-                <label htmlFor="country"> Country </label>
-                <input name="country" type="text" onChange={onChange} value={this.state.country} />
-                <input type="submit" value="Edit Fantasy Team" />
+                <label className="edit-form-name" htmlFor="name"> Name </label><br></br>
+                <input className="input-edit-form" name="name" type="text" onChange={onChange} value={this.state.name} /><br></br><br></br>
+                <label className="edit-form-name" htmlFor="nickname"> Nickname</label><br></br>
+                <input className="input-edit-form" name="nickname" type="text" onChange={onChange} value={this.state.nickname} /><br></br><br></br>
+                <label className="edit-form-name" htmlFor="color"> Color </label><br></br>
+                <input className="input-edit-form" name="color" type="text" onChange={onChange} value={this.state.color} /><br></br><br></br>
+                <label className="edit-form-name" htmlFor="country"> Country </label><br></br>
+                <input className="input-edit-form" name="country" type="text" onChange={onChange} value={this.state.country} /><br></br><br></br>
+                <input className="edit-form-button" type="submit" value="Edit Fantasy Team" />
             </form>
         )
     }
