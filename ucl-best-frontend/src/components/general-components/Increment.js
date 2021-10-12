@@ -10,15 +10,13 @@ export default class Increment extends PureComponent {
     }
     render() {
         const increaseButton = () => {
-            this.setState((state) => {
-                return {count: state.words}
-            })
+            this.setState({ count: this.state.words.length})
         }
         const handleChange = (event) => {
-            const userInput = event.target.value.length
             
-            const wordslenght = this.setState({words: userInput})
-            console.log('currentState',this.state.words)
+            
+            this.setState({ words: event.target.value})
+            
         }
         // console.log('wordsChecking', this.setState({words: userInput}))
         return (
