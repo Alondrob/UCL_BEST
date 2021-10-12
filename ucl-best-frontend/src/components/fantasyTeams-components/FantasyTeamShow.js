@@ -24,6 +24,7 @@ const FantasyTeamShow = (props) => {
     }
 
     const renderTeams = () => {
+        
         setShowTeams(!showTeams)
     }
 
@@ -35,10 +36,10 @@ const FantasyTeamShow = (props) => {
     }
     
     const sortPlayers = () => {
-        const arr1 = props.fantasyTeams.map(fantasyTeam => fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => fantasyTeamPlayer.player))
+        let arr1 = props.fantasyTeams.map(fantasyTeam => fantasyTeam.fantasy_team_players.map((fantasyPlayer) => fantasyPlayer.player))
         debugger
-        // const arr2 = arr1.map(player => player.name)
-
+        let arr2 = arr1.map(a => a)
+        
         
          
     }
