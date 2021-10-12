@@ -6,6 +6,7 @@ import EditForm from './EditForm'
 import Teams from '../teams-components/Teams'
 import FantasyTeamPlayer from '../players-components/fantasyTeamPlayer'
 import './FantasyTeam.css'
+import Player from '../players-components/Player'
 
 const FantasyTeamShow = (props) => {
     const [showEditForm, setShowEditForm] = useState(false)
@@ -32,11 +33,16 @@ const FantasyTeamShow = (props) => {
     const showPlayers = () => {
         setShowPlayers(!showPlayersState)
     }
+    
+    const sortPlayers = () => {
+        const arr1 = props.fantasyTeams.map(fantasyTeam => fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => fantasyTeamPlayer.player))
+        debugger
+        // const arr2 = arr1.map(player => player.name)
 
-    const newFunction = () => {
-        return {}
+        
+         
     }
-  
+   
     // console.log('FantasyTeamShow.js', this.props)
     // console.log('mapStateToProps', props.state)
     return (
@@ -71,6 +77,8 @@ const FantasyTeamShow = (props) => {
                 <button className="fantasy-team-buttons" onClick={onDelete}> Delete Team </button>
 
                 <button className="fantasy-team-buttons" onClick={renderTeams}> Add Players </button>
+
+                <button onClick={sortPlayers}> sort Players</button>
 
                
             

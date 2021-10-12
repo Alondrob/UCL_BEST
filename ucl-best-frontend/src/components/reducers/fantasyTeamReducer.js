@@ -49,7 +49,7 @@ const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
             case "DELETE_FANTASY_TEAM_PLAYER":
             const fantasyTeamPlayerIdKey = parseInt(action.fantasyTeamPlayerIdKey)
 
-            let deletingFantasyTeam = state.fantasyTeams.find(fantasyTeam => fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => fantasyTeamPlayer.id).includes(fantasyTeamPlayerIdKey))
+            let deletingFantasyTeam = state.fantasyTeams.find       (fantasyTeam => fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => fantasyTeamPlayer.id).includes(fantasyTeamPlayerIdKey))
 
             const deletingFantasyTeamPlayer = deletingFantasyTeam.fantasy_team_players.find(fantasyTeamPlayer => fantasyTeamPlayer.id === fantasyTeamPlayerIdKey)
 
@@ -63,6 +63,44 @@ const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
                     : fantasyTeam
                 )
             }
+
+            case 'SORT_TEAMS':
+                const sortedTeams = state.fantasyTeams.sort((a, b) => {
+                    if(a.name < b.name) {
+                        return -1
+                    }
+                    else if (a.name > b.name) {
+                        return 1
+                    }
+                    else {
+                        return 0
+                    }
+                })
+                    return {
+                        fantasyTeams: [...sortedTeams]
+                    }
+
+            case 'SORT_TEAMS_BACKWARDS':
+            const sortedTeamsBackwards = state.fantasyTeams.sort((a, b) => {
+                if (a.name < b.name) {
+                    return 1
+                }
+                else if (a.name > b.name) {
+                    return - 1
+                }
+                else {
+                    return 0
+                }
+            })
+                return {
+                    fantasyTeams: [...sortedTeamsBackwards]
+                }
+
+            case 'SEARCH_TEAMS':
+                const searchedTeams = state.fantasyTeams.filter(fantasyTeam => fantasyTeam.name.toLowerCase().includes(action.userInput.toLowerCase()))
+                return {
+                    fantasyTeams: [...searchedTeams]
+                }
 
         default:
             return state;

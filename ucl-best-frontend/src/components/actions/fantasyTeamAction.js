@@ -87,3 +87,22 @@ export const deleteFantasyTeamPlayer = (fantasyTeamPlayerId) => {
              dispatch({ type: 'DELETE_FANTASY_TEAM_PLAYER', fantasyTeamPlayerIdKey: fantasyTeamPlayerId })
     }
 }
+
+export const sortFantasyTeams = () => {
+    return(dispatch) => {
+        dispatch({type: 'SORT_TEAMS'})
+    }
+}
+
+export const sortFantasyTeamsBackwards = () => {
+    return (dispatch) => {
+        dispatch({ type: 'SORT_TEAMS_BACKWARDS' })
+    }
+}
+
+export const searchBar = (userInput) => {
+    return (dispatch) => {
+        dispatch({type: 'SEARCH_TEAMS', userInput: userInput})
+    }
+}
+
