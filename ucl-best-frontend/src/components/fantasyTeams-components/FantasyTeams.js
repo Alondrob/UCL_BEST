@@ -12,7 +12,8 @@ class FantasyTeams extends Component {
 
         this.state = {
             filteredTeams: props.fantasyTeams,
-            sortedTeams: false
+            sortedTeams: false,
+            selectedPositions: []
         }
     }
 
@@ -54,6 +55,25 @@ class FantasyTeams extends Component {
         const numOfPlayers = () => {
             this.props.filteredByPlayers()
         }
+       
+        const findPosition = (event) => {
+            const userSelection = event.target.value
+            let players = []
+            
+             this.props.fantasyTeams.forEach(fantasyTeam => {
+                 fantasyTeam.fantasy_team_players.forEach(fantasyTeamPlayer => {
+                     debugger
+                     if (fantasyTeamPlayer.player.position === userSelection) {
+                        players.push(fantasyTeamPlayer)
+                     }
+                 })
+            })
+            
+            this.setState({
+                selectedPositions: players
+            })
+        
+        }
 
         return (
             <div className="fantasy-teams-backround">
@@ -65,7 +85,14 @@ class FantasyTeams extends Component {
                 
                 <label> Search Bar </label>
                 <input onChange={searchBar} type='text'/> 
-            
+
+                <select onChange={findPosition}> 
+                    <option value='Attacker'> Attacker </option>
+                    <option value='Defender'> Defender </option>
+                    <option value='Midfielder'> Midfielder </option>
+                    <option value='Goalkeeper'> Goalkeeper </option>
+                </select>
+                {this.state.selectedPositions.map(fantasyTeamPlayer => <h1> {fantasyTeamPlayer.fantasy_team.name}: {fantasyTeamPlayer.player.name} </h1>)}
             </div>
         )
     }

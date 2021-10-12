@@ -83,7 +83,7 @@ const fantasyTeamReducer = (state = { fantasyTeams: [], filteredTeams: [] }, act
                 return {
                     fantasyTeams: [...backwardsTeams],
                     filteredTeams: [...backwardsTeams]
-                }
+                } 
 
                 case 'FILTER_POSITIONS':
             const positions = ['Goalkeeper', 'Defender', 'Midfielder', 'Attacker']
@@ -114,21 +114,34 @@ const fantasyTeamReducer = (state = { fantasyTeams: [], filteredTeams: [] }, act
 
                 case 'FILTER_BY_PLAYERS':
                    
-                    const numOfPlayers = state.fantasyTeams.map((fantasyTeam) => 
-                        fantasyTeam.fantasy_team_players.sort())
-                            // fantasyTeam.fantasy_team_players.sort((a,b) => {
-                            //     if (a.length < b.length) {
-                            //         return -1
-                            //     }
-                            //     else if (a.length > b.length) {
-                            //         return 1
-                            //     }
-                            //     else {
-                            //         return 0
-                            //     }
-                            // })
+                    // const numOfPlayers = state.fantasyTeams.map((fantasyTeam) => 
+                    //     fantasyTeam.fantasy_team_players.sort())
+                    // //         fantasyTeam.fantasy_team_players.sort((a,b) => {
+                    // //             if (a.length < b.length) {
+                    // //                 return -1
+                    // //             }
+                    // //             else if (a.length > b.length) {
+                    // //                 return 1
+                    // //             }
+                    // //             else {
+                    // //                 return 0
+                    // //             }
+                    // //         })
                         
-                    // )
+                    // // )
+
+                    // const numOfPlayers = state.fantasyTeams.sort((a,b) => a.fantasy_team_players.length - b.fantasy_team_players.length)
+                    const numOfPlayers = state.fantasyTeams.sort((a,b) => {
+                        if (a.fantasy_team_players.length < b.fantasy_team_players.length) {
+                            return 1
+                        }
+                        else if (a.fantasy_team_players.length > b.fantasy_team_players.length) {
+                            return -1
+                        }
+                        else {
+                            return 0
+                        }
+                    })
            
          
                     
