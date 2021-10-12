@@ -1,28 +1,32 @@
 import FantasyTeam from "../fantasyTeams-components/FantasyTeam"
 
-const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
+const fantasyTeamReducer = (state = { fantasyTeams: [], filteredTeams: [] }, action) => {
     switch (action.type) {
         case "FETCH_FANTASY_TEAMS":
             return {
-                fantasyTeams: action.fantasyTeams
+                fantasyTeams: action.fantasyTeams,
+                filteredTeams: action.fantasyTeams
             }
         case "CREATE_FANTASY_TEAM":
             return {
-                fantasyTeams: [...state.fantasyTeams, action.fantasyTeamKey]
+                fantasyTeams: [...state.fantasyTeams, action.fantasyTeamKey],
+                filteredTeams: [...state.fantasyTeams, action.fantasyTeamKey]
             }
 
         case "EDIT_FANTASY_TEAM":
             const editedFantasyTeams = state.fantasyTeams.map((fantasyTeam) =>
                 fantasyTeam.id === action.fantasyTeamKey.id ? action.fantasyTeamKey : fantasyTeam)
             return {
-                fantasyTeams: editedFantasyTeams
+                fantasyTeams: editedFantasyTeams,
+                filteredTeams: editedFantasyTeams
             }
 
         case "DELETE_FANTASY_TEAM":
             // debugger
             const fantasyTeams = state.fantasyTeams.filter(fantasyTeam => fantasyTeam.id !== action.id)
             return {
-                fantasyTeams: fantasyTeams
+                fantasyTeams: fantasyTeams,
+                filteredTeams: fantasyTeams
             }
 
         case "ADD_FANTASY_TEAM_PLAYER":
@@ -32,7 +36,8 @@ const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
             const updatedFantasyTeams = state.fantasyTeams.map((fantasyTeam) =>
                 fantasyTeam.id === action.fantasyTeamPlayerKey.fantasy_team.id ? updatedFantasyTeam : fantasyTeam)
             return {
-                fantasyTeams: updatedFantasyTeams
+                fantasyTeams: updatedFantasyTeams,
+                filteredTeams: updatedFantasyTeam
             }
 
             case "DELETE_FANTASY_TEAM_PLAYER":
@@ -41,7 +46,8 @@ const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
             
                 fantasyTeamsArray.fantasy_team_players = fantasyTeamsArray.fantasy_team_players.filter(fantasyTeamPlayer => fantasyTeamPlayer.id != fantasyTeamPlayerIdKey)
                 return {
-                    fantasyTeams: state.fantasyTeams.map(fantasyTeam => fantasyTeam.id === fantasyTeamsArray.id ? fantasyTeamsArray : fantasyTeam)
+                    fantasyTeams: state.fantasyTeams.map(fantasyTeam => fantasyTeam.id === fantasyTeamsArray.id ? fantasyTeamsArray : fantasyTeam),
+                    filteredTeams: state.fantasyTeams.map(fantasyTeam => fantasyTeam.id === fantasyTeamsArray.id ? fantasyTeamsArray : fantasyTeam)
                 }
 
             case "SORT_FANTASY_TEAMS":
@@ -59,7 +65,8 @@ const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
                 }) 
             
                     return {
-                        fantasyTeams: [...sortedTeams]
+                        fantasyTeams: [...sortedTeams],
+                        filteredTeams: [...sortedTeams]
                     }
                 
         case "BACKWARDS_TEAMS":
@@ -77,7 +84,20 @@ const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
             })
 
             return {
-                fantasyTeams: [...backwardsTeams]
+                fantasyTeams: [...backwardsTeams],
+                filteredTeams: [...backwardsTeams]
+            }
+            
+        case "SEARCH_FANTASY_TEAMS":
+            
+            const searchedTeams = state.fantasyTeams.filter(fantasyTeam => {
+                if(fantasyTeam.name.toLowerCase().includes(action.userInput.toLowerCase())) {
+                 return fantasyTeam
+                }
+            })
+            return {
+                fantasyTeams: state.fantasyTeams,
+                filteredTeams: [...searchedTeams]
             }
 
         default:

@@ -11,3 +11,4 @@ export const togglePlayerAdded = (player) => {
         dispatch({type: 'TOGGLE_PLAYER', playerKey: player})
     }
 }
+

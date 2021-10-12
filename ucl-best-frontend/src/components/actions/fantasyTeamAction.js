@@ -99,3 +99,9 @@ export const backwardsTeams = () => {
         dispatch({type: 'BACKWARDS_TEAMS'})
     }
 }
+
+export const searchFantasyTeams = (userInput) => {
+    return(dispatch) => {
+        dispatch({type: 'SEARCH_FANTASY_TEAMS', userInput: userInput})
+    }
+}

@@ -78,3 +78,12 @@
     font-weight: 900;
    text-align: center;
 }
+
+.search-bar {
+    color:blanchedalmond;
+    font-weight: bold;
+}
+
+.red {
+    background-color: red;
+}
