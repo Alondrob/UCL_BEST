@@ -62,7 +62,7 @@ class FantasyTeams extends Component {
             
              this.props.fantasyTeams.forEach(fantasyTeam => {
                  fantasyTeam.fantasy_team_players.forEach(fantasyTeamPlayer => {
-                     debugger
+                     
                      if (fantasyTeamPlayer.player.position === userSelection) {
                         players.push(fantasyTeamPlayer)
                      }
