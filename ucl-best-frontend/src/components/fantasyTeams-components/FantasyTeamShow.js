@@ -33,6 +33,9 @@ const FantasyTeamShow = (props) => {
         setShowPlayers(!showPlayersState)
     }
 
+    const newFunction = () => {
+        return {}
+    }
   
     // console.log('FantasyTeamShow.js', this.props)
     // console.log('mapStateToProps', props.state)
@@ -57,7 +60,8 @@ const FantasyTeamShow = (props) => {
             {showEditForm && <EditForm fantasyTeam={fantasyTeam} setShowEditForm={setShowEditForm} />}
 
             {showPlayersState && <React.Fragment>
-                <span className="players-header"> Team {fantasyTeam.name} Players</span><br></br><br></br>
+                <span className="players-header"> Team {fantasyTeam.name} Players</span>
+                <br></br><br></br>
                 {fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => <FantasyTeamPlayer key={fantasyTeamPlayer.id} fantasyTeamPlayer={fantasyTeamPlayer} />)}
                 </React.Fragment>}
             
@@ -67,6 +71,8 @@ const FantasyTeamShow = (props) => {
                 <button className="fantasy-team-buttons" onClick={onDelete}> Delete Team </button>
 
                 <button className="fantasy-team-buttons" onClick={renderTeams}> Add Players </button>
+
+               
             
 
             

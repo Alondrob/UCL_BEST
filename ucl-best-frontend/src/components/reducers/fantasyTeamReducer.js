@@ -44,21 +44,7 @@ const fantasyTeamReducer = (state = { fantasyTeams: [] }, action) => {
                 )
             }
 
-            {
-                fantasyTeams: [
-                    {
-                       id: 1,
-                       name: 'ANTON',
-                       fantasy_team_players: [{
-                           id: 1,
-                       }]
-
-                    }
-                ]
-            }
-
-
-
+         
 
             case "DELETE_FANTASY_TEAM_PLAYER":
             const fantasyTeamPlayerIdKey = parseInt(action.fantasyTeamPlayerIdKey)
