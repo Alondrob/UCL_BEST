@@ -10,6 +10,7 @@ import Team from './components/teams-components/Teams.js';
 import FantasyTeams from './components/fantasyTeams-components/FantasyTeams.js';
 import Form from './components/fantasyTeams-components/Form';
 import FantasyTeamShow from './components/fantasyTeams-components/FantasyTeamShow.js';
+import Increment from './components/general-components/Increment'
 
 function App() {
   console.log('app.js')
@@ -26,6 +27,7 @@ function App() {
           <Route path="/fantasy_teams" exact component={() => <FantasyTeams />} />
          
           <Route path="/team" exact component={Team} />
+          <Route path="/increment" exact component={Increment} />
           
         </Switch>
       </Router>
