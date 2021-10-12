@@ -26,7 +26,7 @@ class FantasyTeams extends Component {
 
         return (
             <div className='fantasy-team-backround'>
-                <h1 > <span className="fantasy-teams-header">Fantasy Teams  </span></h1>
+                <h1 className="ft-header"> <span className="fantasy-teams-header">Fantasy Teams  </span></h1>
                 
                     <span >{fantasyTeams} <br></br><br></br></span>
                 
