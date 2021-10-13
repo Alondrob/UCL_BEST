@@ -10,7 +10,7 @@ export default class Increment extends PureComponent {
     }
     render() {
         const increaseButton = () => {
-            this.setState({ count:  this.state.count + this.state.words.length, words: ''})
+            this.setState({ count: this.state.count + this.state.words.length, words: ''})
              
         }
         const handleChange = (event) => {
@@ -26,7 +26,7 @@ export default class Increment extends PureComponent {
 
                 <button onClick={increaseButton}> Increment </button>
                 <label id="label"> Type Here </label>
-                <input onChange={handleChange} type="text" value={this.state.words}/>
+                <input onChange={handleChange} type="text" value={this.state.words} />
                 
                 
                 <h1>{this.state.count}</h1>
