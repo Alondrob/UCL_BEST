@@ -10,7 +10,8 @@ export default class Increment extends PureComponent {
     }
     render() {
         const increaseButton = () => {
-            this.setState({ count: this.state.words.length})
+            this.setState({ count: this.state.count + this.state.words.length})
+            
         }
         const handleChange = (event) => {
             
