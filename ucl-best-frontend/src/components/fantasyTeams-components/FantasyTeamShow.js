@@ -36,13 +36,31 @@ const FantasyTeamShow = (props) => {
     }
     
     const sortPlayers = () => {
-        let arr1 = props.fantasyTeams.map(fantasyTeam => fantasyTeam.fantasy_team_players.map((fantasyPlayer) => fantasyPlayer.player))
+        // let arr1 = props.fantasyTeams.map(fantasyTeam => fantasyTeam.fantasy_team_players.map((fantasyPlayer) => fantasyPlayer.player))
+        // debugger
+        // let arr2 = arr1.map(a => a)
+        
+
+        const playersArray = props.fantasyTeams.map(fantasyTeam => fantasyTeam.fantasy_team_players.map(fantasyTeamPlayer => fantasyTeamPlayer.player.name))
         debugger
-        let arr2 = arr1.map(a => a)
+        // props.fantasyTeams.map(fantasyTeam => fantasyTeam.fantasy_team_players.sort((a, b) => {
+        //     if(a.player.name)
+        // }))
+        // const sortedPlayers = (playersArray) => {
+        //     const arr1 = playersArray.sort((a, b) => {
+        //         if(a.name < b.name)
+        //     })
+        // }
         
         
          
     }
+
+   const fruits = ['apple', 'cherry']
+
+   fruits.map(fruit => {
+       console.log(fruit)
+   })
    
     // console.log('FantasyTeamShow.js', this.props)
     // console.log('mapStateToProps', props.state)
