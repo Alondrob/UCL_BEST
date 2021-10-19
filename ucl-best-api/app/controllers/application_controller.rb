@@ -8,10 +8,7 @@ class ApplicationController < ActionController::API
         request.headers["Authorization"] 
     end
 
-    headers: {
-        'Accept': 'application/json'
-        'Authorization': 'Bearer kjdfsdnfdj'
-    }
+   
     def decoded_token
         if auth_header
             token = auth_header.split(' ')[1]
