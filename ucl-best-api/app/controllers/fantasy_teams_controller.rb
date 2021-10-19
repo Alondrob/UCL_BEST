@@ -6,7 +6,7 @@ class FantasyTeamsController < ApplicationController
     end
 
     def create
-        fantasy_team = FantasyTeam.create(fantasy_team_params)
+        fantasy_team = current_user.fantasy_teams.create(fantasy_team_params)
         render json: fantasy_team
     end
 

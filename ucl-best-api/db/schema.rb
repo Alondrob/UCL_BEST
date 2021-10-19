@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_30_222623) do
+ActiveRecord::Schema.define(version: 2021_10_18_234904) do
 
   create_table "fantasy_team_players", force: :cascade do |t|
     t.integer "fantasy_team_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_09_30_222623) do
     t.string "country"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -48,6 +49,13 @@ ActiveRecord::Schema.define(version: 2021_09_30_222623) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "api_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
